@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: db15577133062264894a7061dc11f5e8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - standAnim: {fileID: 7400000, guid: 93c3aaba1fc9b7443ae2b97997a3e489, type: 2}
+  - walkAnim: {instanceID: 0}
+  - jumpAnim: {instanceID: 0}
+  - crouchAnim: {instanceID: 0}
+  - fallAnim: {instanceID: 0}
+  - standLightAnim: {instanceID: 0}
+  - standMedAnim: {instanceID: 0}
+  - standHeavyAnim: {instanceID: 0}
+  - crouchLightAnim: {instanceID: 0}
+  - crouchMedAnim: {instanceID: 0}
+  - crouchHeavyAnim: {instanceID: 0}
+  - jumpLightAnim: {instanceID: 0}
+  - jumpMedAnim: {instanceID: 0}
+  - jumpHeavyAnim: {instanceID: 0}
+  - spec1Anim: {instanceID: 0}
+  - spec2Anim: {instanceID: 0}
+  - superAnim: {instanceID: 0}
+  - blockAnim: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
