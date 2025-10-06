@@ -350,6 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2bc751e2379492478cbe199e0b1f360, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box: {fileID: 581858195}
   crouchBox: {fileID: 581858197}
   moveSpeed: 3.8
   jumpHeight: 9.5
