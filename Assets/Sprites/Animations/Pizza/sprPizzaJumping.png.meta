@@ -1,0 +1,403 @@
+fileFormatVersion: 2
+guid: 1044377602d41d6438db63ce19f416e9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6611075769132830968
+    second: sprPizzaJumping_0
+  - first:
+      213: -1207952458963077718
+    second: sprPizzaJumping_1
+  - first:
+      213: -1155043097124596114
+    second: sprPizzaJumping_2
+  - first:
+      213: -5031443943872735391
+    second: sprPizzaJumping_3
+  - first:
+      213: -676914627499367226
+    second: sprPizzaJumping_4
+  - first:
+      213: -2365112128525848039
+    second: sprPizzaJumping_5
+  - first:
+      213: -4348793918858327506
+    second: sprPizzaJumping_6
+  - first:
+      213: -6668894677399915934
+    second: sprPizzaJumping_7
+  - first:
+      213: -565369444901689161
+    second: sprPizzaJumping_8
+  - first:
+      213: 6462478857997391307
+    second: sprPizzaJumping_9
+  - first:
+      213: 5191984471005379538
+    second: sprPizzaJumping_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sprPizzaJumping_0
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 9
+        width: 102
+        height: 140
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a1f57c691f089546935819c8de77f30
+      internalID: -113226857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_1
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 4
+        width: 102
+        height: 144
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c38520b3c918b394fb74cfbc879df948
+      internalID: 1491034075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_2
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 3
+        width: 102
+        height: 142
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e2e9248286a28489c05b80519265d6
+      internalID: -723556705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_3
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 2
+        width: 120
+        height: 147
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 721298a128365024d8c481cb78b3073c
+      internalID: -1850042609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_4
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 3
+        width: 120
+        height: 145
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f469e8ad21906124e8dca53cabcce026
+      internalID: -1707574259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_5
+      rect:
+        serializedVersion: 2
+        x: 646
+        y: 6
+        width: 120
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d5383e580757044b06da4eaaa4e774
+      internalID: 982502205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_6
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 5
+        width: 120
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f58719b6a29b7444bf1626f4f54656a
+      internalID: -1055014104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_7
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 6
+        width: 120
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7337b5a56e8c32a48ae3625676153ad1
+      internalID: -280185974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_8
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 5
+        width: 120
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cdf831e6b1e9848b5041de76aa5d90
+      internalID: -1083453215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_9
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 6
+        width: 120
+        height: 141
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2736c51e7a348fb499675596f6b7dbe5
+      internalID: -1451989697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sprPizzaJumping_10
+      rect:
+        serializedVersion: 2
+        x: 1286
+        y: 5
+        width: 120
+        height: 143
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b8f1b2f8e0f6a74c8c8dad59c30ad1f
+      internalID: 733902829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 528093b729561ab4d85b4e26ed3498fb
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      sprPizzaJumping_0: -113226857
+      sprPizzaJumping_1: 1491034075
+      sprPizzaJumping_10: 733902829
+      sprPizzaJumping_2: -723556705
+      sprPizzaJumping_3: -1850042609
+      sprPizzaJumping_4: -1707574259
+      sprPizzaJumping_5: 982502205
+      sprPizzaJumping_6: -1055014104
+      sprPizzaJumping_7: -280185974
+      sprPizzaJumping_8: -1083453215
+      sprPizzaJumping_9: -1451989697
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db15577133062264894a7061dc11f5e8, type: 3}
+  m_Name: PizzaAnimations
+  m_EditorClassIdentifier: 
+  standAnim: {fileID: 7400000, guid: 0875aa3ffb45f7142854ee903fff4a3c, type: 2}
+  walkAnim: {fileID: 7400000, guid: 3ee8ae65e2787e241a2266a94eea4493, type: 2}
+  jumpAnim: {fileID: 7400000, guid: af8984c18b042e046a3889f521ba0fb0, type: 2}
+  crouchAnim: {fileID: 7400000, guid: 49ef3fd3a2ae8924ea4233173bff90b4, type: 2}
+  fallAnim: {fileID: 7400000, guid: 4ff51ea785af6d24cb62fb4c26245738, type: 2}
+  standLightAnim: {fileID: 7400000, guid: c6b56f0a6864f394fb82f58667b60b35, type: 2}
+  standMedAnim: {fileID: 7400000, guid: ef7d2568383453845ab88d87f593e70d, type: 2}
+  standHeavyAnim: {fileID: 0}
+  crouchLightAnim: {fileID: 0}
+  crouchMedAnim: {fileID: 7400000, guid: 2cb300a8b561e0f4f926430c51bad764, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: 78cfe97f67453834b8bbda0f436e8c18, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: fdc75f60e8860844583b14be67ca6aa0, type: 2}
+  jumpMedAnim: {fileID: 7400000, guid: ab55b425404094b48b3a81d92a01b0a4, type: 2}
+  jumpHeavyAnim: {fileID: 7400000, guid: aee3d478ab9f5bf459007d9b88a09231, type: 2}
+  spec1Anim: {fileID: 0}
+  spec2Anim: {fileID: 0}
+  superAnim: {fileID: 7400000, guid: 22c3ff4d477d0bb48856140398661e6d, type: 2}
+  blockAnim: {fileID: 7400000, guid: d2e55cca817934f4bb1c7ee791d59005, type: 2}
