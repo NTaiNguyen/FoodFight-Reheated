@@ -29,19 +29,19 @@ public class AnimationController : MonoBehaviour
             lastMove = newMove;
             switch (newMove) {
                 case MoveState.STAND:
-                    _animator.Play(animSet.standAnim.name);
+                    _animator.Play("Idle");
                     break;
                 case MoveState.WALK:
-                    _animator.Play(animSet.walkAnim.name);
+                    _animator.Play("Walk");
                     break;
                 case MoveState.JUMP:
-                    _animator.Play(animSet.jumpAnim.name);
+                    _animator.Play("Jump");
                     break;
                 case MoveState.FALL:
-                    _animator.Play(animSet.fallAnim.name);
+                    _animator.Play("Fall");
                     break;
                 case MoveState.CROUCH:
-                    _animator.Play(animSet.crouchAnim.name);
+                    _animator.Play("Crouch");
                     break;
             }
         }
