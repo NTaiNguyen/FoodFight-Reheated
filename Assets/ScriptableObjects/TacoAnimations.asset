@@ -17,16 +17,16 @@ MonoBehaviour:
   jumpAnim: {fileID: 7400000, guid: fc836e43bcd0ebb43bab7d5d5426d983, type: 2}
   crouchAnim: {fileID: 7400000, guid: 2fa2210e89e296f439ee5a3ceba2f648, type: 2}
   fallAnim: {fileID: 7400000, guid: 90680971ab5240141804565dee742fc9, type: 2}
-  standLightAnim: {fileID: 0}
-  standMedAnim: {fileID: 0}
-  standHeavyAnim: {fileID: 0}
-  crouchLightAnim: {fileID: 0}
-  crouchMedAnim: {fileID: 0}
-  crouchHeavyAnim: {fileID: 0}
-  jumpLightAnim: {fileID: 0}
-  jumpMedAnim: {fileID: 0}
-  jumpHeavyAnim: {fileID: 0}
-  spec1Anim: {fileID: 0}
+  standLightAnim: {fileID: 7400000, guid: 92eda1f74ac74bb4681a6602f842caf2, type: 2}
+  standMedAnim: {fileID: 7400000, guid: c602d57817e956648a500cb2d9e69128, type: 2}
+  standHeavyAnim: {fileID: 7400000, guid: ec393109d9f975f44af5968ddd9f0bbf, type: 2}
+  crouchLightAnim: {fileID: 7400000, guid: 1745c7385a51c3a4399e79f11f10eac7, type: 2}
+  crouchMedAnim: {fileID: 7400000, guid: 07de7954f854ec248a01cba37087018e, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: 81297696de8c040498ba41b11632b6a8, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: d8a0baddbb0b4cc4585aa755589bb379, type: 2}
+  jumpMedAnim: {fileID: 7400000, guid: bbe883695088e2d4380d33abdd8b8da3, type: 2}
+  jumpHeavyAnim: {fileID: 7400000, guid: accba1942a02c1645b42c8f76f2334d4, type: 2}
+  spec1Anim: {fileID: 7400000, guid: 8486c8fb14b3f2647bdecfd02ed02022, type: 2}
   spec2Anim: {fileID: 0}
-  superAnim: {fileID: 0}
+  superAnim: {fileID: 7400000, guid: 8486c8fb14b3f2647bdecfd02ed02022, type: 2}
   blockAnim: {fileID: 0}
