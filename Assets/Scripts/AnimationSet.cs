@@ -8,6 +8,8 @@ public class AnimationSet : ScriptableObject {
     public AnimationClip jumpAnim;
     public AnimationClip crouchAnim;
     public AnimationClip fallAnim;
+    public AnimationClip takingDamageAnim;
+    public AnimationClip entranceAnim;
 
     [Header("Action Animations")]
     public AnimationClip standLightAnim;
@@ -22,5 +24,6 @@ public class AnimationSet : ScriptableObject {
     public AnimationClip spec1Anim;
     public AnimationClip spec2Anim;
     public AnimationClip superAnim;
-    public AnimationClip blockAnim;
+    public AnimationClip standingBlockAnim;
+    public AnimationClip crouchingBlockAnim;
 }

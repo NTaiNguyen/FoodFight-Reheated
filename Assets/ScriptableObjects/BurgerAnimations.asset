@@ -17,6 +17,8 @@ MonoBehaviour:
   jumpAnim: {fileID: 7400000, guid: 91719c443a78ca24786aa98e87b4db23, type: 2}
   crouchAnim: {fileID: 7400000, guid: ee79fa8098aa2c547bf6614689c8f4fb, type: 2}
   fallAnim: {fileID: 7400000, guid: 044c1ede9fe86d2439d7399c2da44391, type: 2}
+  takingDamageAnim: {fileID: 0}
+  entranceAnim: {fileID: 7400000, guid: d6b24262d7c8d844abbfc0b54081610c, type: 2}
   standLightAnim: {fileID: 7400000, guid: d0e204a048cb55f4e88ae0aad90faf51, type: 2}
   standMedAnim: {fileID: 7400000, guid: 0e2bd9452bbb0e541b868bfffbd77474, type: 2}
   standHeavyAnim: {fileID: 7400000, guid: 9a2259449ce4dd843a916ab1d053b0b9, type: 2}
@@ -29,4 +31,5 @@ MonoBehaviour:
   spec1Anim: {fileID: 0}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 0}
-  blockAnim: {fileID: 0}
+  standingBlockAnim: {fileID: 7400000, guid: 2c5fe9261668f0d4c889ae4beacd46e3, type: 2}
+  crouchingBlockAnim: {fileID: 7400000, guid: 4bee9b52847befc47aa3047b22982dbd, type: 2}
