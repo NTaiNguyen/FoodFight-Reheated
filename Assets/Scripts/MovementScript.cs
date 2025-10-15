@@ -8,82 +8,120 @@ public enum MoveState {
 }
 public enum ActionState {
     NONE,
-    LIGHT,
-    MEDIUM,
-    HEAVY,
-    SPECIAL,
-    BLOCK
+    SL, SM, SH,
+    CL, CM, CH,
+    JL, JM, JH,
+    SP1, SP2,
+    BLOCK,
+    CBLOCK
+}
+public enum InputDirection {
+    Up = 8,
+    Right = 6,
+    Down = 2,
+    Left = 4,
+    DownLeft = 1,
+    DownRight = 3,
+    UpLeft = 7,
+    UpRight = 9,
+    Neutral = 5
 }
 public class MovementScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private AnimationController animControl;
     [SerializeField] private BoxCollider2D box;
-    [SerializeField] private BoxCollider2D crouchBox;
     // Stores the base size and offset of the character collider
+
+    // Used for collider resizing
     private Vector2 defaultSize, defaultOffset;
+    private float crouchHeight;
     private bool isGrounded;
     public float moveSpeed = 3.8f;
     public float jumpHeight = 9.5f;
     public MoveState sMove { get; private set; }
-    public ActionState sAct { get; private set; }
+    private InputDirection direction = InputDirection.Neutral;
+    private Vector2 input;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         rb = GetComponent<Rigidbody2D>();
-        animControl = GetComponent<AnimationController>();
         box = GetComponent<BoxCollider2D>();
         defaultSize = box.size;
         defaultOffset = box.offset;
-        
+        crouchHeight = defaultSize.y * .75f;
     }
 
     // Update is called once per frame
     void Update(){
         HandleMovement();
         UpdateState();
+        
+
     }
 
-    
+
     private void HandleMovement() {
-        float hMove = Input.GetAxisRaw("Horizontal");
-        if (isGrounded) {
-            //Slower Backwards movement 
-            if (hMove > 0) {
-                rb.linearVelocity = new Vector2(moveSpeed * hMove, rb.linearVelocity.y);
-            }
-            else
-                rb.linearVelocity = new Vector2(moveSpeed * hMove * 0.8f, rb.linearVelocity.y);
+        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        direction = GetDirection(input);
+        
+        if (!isGrounded) return;
 
+        switch (direction) {
+            case InputDirection.Right:
+                rb.linearVelocity = new Vector2(moveSpeed * input.x, rb.linearVelocity.y);
+                break;
 
-            if (Input.GetKey(KeyCode.W)) {
-                rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpHeight);
+            case InputDirection.Left:
+                rb.linearVelocity = new Vector2(moveSpeed * input.x * 0.8f, rb.linearVelocity.y);
+                break;
+
+            case InputDirection.Down:
+            case InputDirection.DownLeft:
+            case InputDirection.DownRight:
+                rb.linearVelocity = Vector2.zero;
+                break;
+
+            case InputDirection.Up:
+            case InputDirection.UpLeft:
+            case InputDirection.UpRight:
+                rb.linearVelocity = new Vector2(moveSpeed * input.x, jumpHeight);
                 isGrounded = false;
-                sMove = MoveState.JUMP;
-            }
+                break;
+
+            case InputDirection.Neutral:
+                rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+                break;
         }
     }
 
+
+    private bool crouchLocked = false;
+
     private void UpdateState() {
+        float verticalInput = Input.GetAxisRaw("Vertical");
+        float deadzone = 0.1f;
+
         if (!isGrounded) {
             sMove = rb.linearVelocity.y > 0 ? MoveState.JUMP : MoveState.FALL;
         }
         else {
-            if (Input.GetKey(KeyCode.S)) {
+            if (verticalInput < -deadzone) {
                 sMove = MoveState.CROUCH;
-                rb.linearVelocity = Vector2.zero;
-                
+                crouchLocked = true; 
             }
-            else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0) {
-                sMove = MoveState.WALK;
+            else if (crouchLocked && verticalInput >= -deadzone) {
+                crouchLocked = false;
+                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 ? MoveState.WALK : MoveState.STAND;
             }
-            else {
-                sMove = MoveState.STAND;
+            else if (!crouchLocked) {
+                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 ? MoveState.WALK : MoveState.STAND;
             }
         }
-        Debug.Log("sMove = " + sMove + " | sAct = " + sAct);
 
+        SetCrouch(sMove == MoveState.CROUCH);
     }
+
 
 
     void OnCollisionEnter2D(Collision2D collision){
@@ -98,4 +136,39 @@ public class MovementScript : MonoBehaviour
             isGrounded = false;
         }
     }
+
+    private InputDirection GetDirection(Vector2 input) {
+        float x = input.x;
+        float y = input.y;
+
+        // turns input values into enums
+        if (y > 0.5f && Mathf.Abs(x) < 0.5f) return InputDirection.Up;
+        if (y < -0.5f && Mathf.Abs(x) < 0.5f) return InputDirection.Down;
+        if (x < -0.5f && Mathf.Abs(y) < 0.5f) return InputDirection.Left;
+        if (x > 0.5f && Mathf.Abs(y) < 0.5f) return InputDirection.Right;
+
+        if (x < -0.5f && y > 0.5f) return InputDirection.UpLeft;
+        if (x > 0.5f && y > 0.5f) return InputDirection.UpRight;
+        if (x < -0.5f && y < -0.5f) return InputDirection.DownLeft;
+        if (x > 0.5f && y < -0.5f) return InputDirection.DownRight;
+
+        return InputDirection.Neutral;
+    }
+
+
+    private void SetCrouch(bool crouch) {
+        if (crouch) {
+            // Shrink the collider from the top
+            float heightDiff = defaultSize.y - crouchHeight;
+            box.size = new Vector2(defaultSize.x, crouchHeight);
+            box.offset = new Vector2(defaultOffset.x, defaultOffset.y - heightDiff / 2);
+        }
+        else {
+            // Reset to standing
+            box.size = defaultSize;
+            box.offset = defaultOffset;
+        }
+    }
+
+
 }

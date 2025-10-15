@@ -17,7 +17,7 @@ MonoBehaviour:
   jumpAnim: {fileID: 7400000, guid: d2a67897433c79643ad1a35f159dc048, type: 2}
   crouchAnim: {fileID: 7400000, guid: ef00b1b8bdd41c94993d2c47527f67f3, type: 2}
   fallAnim: {fileID: 7400000, guid: 599caca5e79e7c0438d7fd0e43407f5d, type: 2}
-  standLightAnim: {fileID: 0}
+  standLightAnim: {fileID: 7400000, guid: 27a2cfb1f717e22438535c380cfa9653, type: 2}
   standMedAnim: {fileID: 0}
   standHeavyAnim: {fileID: 0}
   crouchLightAnim: {fileID: 0}
