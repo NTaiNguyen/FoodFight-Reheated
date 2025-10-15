@@ -8,11 +8,12 @@ public enum MoveState {
 }
 public enum ActionState {
     NONE,
-    LIGHT,
-    MEDIUM,
-    HEAVY,
-    SPECIAL,
-    BLOCK
+    SL, SM, SH,
+    CL, CM, CH,
+    JL, JM, JH,
+    SP1, SP2,
+    BLOCK,
+    CBLOCK
 }
 public enum InputDirection {
     Up = 8,
@@ -28,7 +29,6 @@ public enum InputDirection {
 public class MovementScript : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private AnimationController animControl;
     [SerializeField] private BoxCollider2D box;
     // Stores the base size and offset of the character collider
 
@@ -39,7 +39,6 @@ public class MovementScript : MonoBehaviour
     public float moveSpeed = 3.8f;
     public float jumpHeight = 9.5f;
     public MoveState sMove { get; private set; }
-    public ActionState sAct { get; private set; }
     private InputDirection direction = InputDirection.Neutral;
     private Vector2 input;
 
@@ -47,7 +46,6 @@ public class MovementScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         rb = GetComponent<Rigidbody2D>();
-        animControl = GetComponent<AnimationController>();
         box = GetComponent<BoxCollider2D>();
         defaultSize = box.size;
         defaultOffset = box.offset;
