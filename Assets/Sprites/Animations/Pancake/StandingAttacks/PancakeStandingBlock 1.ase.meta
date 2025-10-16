@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d7b5f871c6ebd3d4f81840beb8135485
+guid: e2f6196d24eebe541b0e36b183069e9c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Frame_2
+  - name: Frame_0
     originalName: 
-    pivot: {x: 0.05712173, y: 0.47599557}
+    pivot: {x: -0.21323526, y: -0.028818443}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 857
-      height: 220
-    spriteID: 2958f969656a9f343803fb697b99d36f
+      width: 136
+      height: 347
+    spriteID: 8ef3aefe5713be340aece14849c38b71
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -144,40 +144,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Frame_0
-    originalName: 
-    pivot: {x: 0.2009338, y: 0.0359241}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 456
-      width: 371
-      height: 112
-    spriteID: d40c077250b1a98418fe7eb08f7217c2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 456}
   - name: Frame_1
     originalName: 
-    pivot: {x: 0.22338563, y: 0.031198774}
+    pivot: {x: -0.21323526, y: -0.028818443}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 383
-      y: 456
-      width: 371
-      height: 112
-    spriteID: cec34ad9f1ea3dd4ea73e82a6cd6a053
+      x: 148
+      y: 4
+      width: 136
+      height: 347
+    spriteID: e02dcc2df7c6f55449fa778c2fecc1dd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -185,73 +164,34 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 383, y: 456}
-  - name: Frame_3
-    originalName: 
-    pivot: {x: 0.05726084, y: 0.4759955}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 231
-      width: 845
-      height: 216
-    spriteID: 665b0578965bb524f8cf6082430e1cd0
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 232}
+    uvTransform: {x: 148, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -664190145
-    name: PancakeJumpingLight
+    guid: -24178733
+    name: PancakeStandingBlock 1
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Frame_2
-      frameIndex: 2
-      additiveSortOrder: 0
-      cellRect:
-        x: 226
-        y: 95
-        width: 857
-        height: 220
-      spriteId: 2958f969656a9f343803fb697b99d36f
     - name: Frame_0
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 193
-        y: 210
-        width: 371
-        height: 112
-      spriteId: d40c077250b1a98418fe7eb08f7217c2
+        x: 229
+        y: 10
+        width: 136
+        height: 347
+      spriteId: 8ef3aefe5713be340aece14849c38b71
     - name: Frame_1
       frameIndex: 1
       additiveSortOrder: 0
       cellRect:
-        x: 184
-        y: 210
-        width: 371
-        height: 112
-      spriteId: cec34ad9f1ea3dd4ea73e82a6cd6a053
-    - name: Frame_3
-      frameIndex: 3
-      additiveSortOrder: 0
-      cellRect:
-        x: 192
-        y: 105
-        width: 845
-        height: 216
-      spriteId: 665b0578965bb524f8cf6082430e1cd0
+        x: 229
+        y: 10
+        width: 136
+        height: 347
+      spriteId: e02dcc2df7c6f55449fa778c2fecc1dd
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -270,5 +210,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 1200, y: 600}
-  previousTextureSize: {x: 1024, y: 1024}
+  canvasSize: {x: 400, y: 400}
+  previousTextureSize: {x: 512, y: 512}
