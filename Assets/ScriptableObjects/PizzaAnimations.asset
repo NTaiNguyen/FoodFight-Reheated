@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15577133062264894a7061dc11f5e8, type: 3}
   m_Name: PizzaAnimations
   m_EditorClassIdentifier: 
-  standAnim: {fileID: 7400000, guid: 0875aa3ffb45f7142854ee903fff4a3c, type: 2}
-  walkAnim: {fileID: 7400000, guid: 3ee8ae65e2787e241a2266a94eea4493, type: 2}
-  jumpAnim: {fileID: 7400000, guid: af8984c18b042e046a3889f521ba0fb0, type: 2}
-  crouchAnim: {fileID: 7400000, guid: 49ef3fd3a2ae8924ea4233173bff90b4, type: 2}
-  fallAnim: {fileID: 7400000, guid: 4ff51ea785af6d24cb62fb4c26245738, type: 2}
+  standAnim: {fileID: 7400000, guid: 2f6aa4d0f5741de49933974f942a053c, type: 2}
+  walkAnim: {fileID: 7400000, guid: 24aa423ed0db7c74798caeec40fe57e3, type: 2}
+  jumpAnim: {fileID: 7400000, guid: 4b4a8bd0167ac794f81af3878bc6a28c, type: 2}
+  crouchAnim: {fileID: 7400000, guid: 85961ff62c33f944584e6013376c337b, type: 2}
+  fallAnim: {fileID: 7400000, guid: 4510747f629eaa1419aa1fd47a4c20dc, type: 2}
+  takingDamageAnim: {fileID: 7400000, guid: b8fa664a1c410ee4e8eb1d64cdb483d2, type: 2}
+  entranceAnim: {fileID: 0}
   standLightAnim: {fileID: 7400000, guid: c6b56f0a6864f394fb82f58667b60b35, type: 2}
   standMedAnim: {fileID: 7400000, guid: ef7d2568383453845ab88d87f593e70d, type: 2}
-  standHeavyAnim: {fileID: 0}
-  crouchLightAnim: {fileID: 0}
+  standHeavyAnim: {fileID: 7400000, guid: b4dd033d61edcf24c835b6eaea1ba6cf, type: 2}
+  crouchLightAnim: {fileID: 7400000, guid: 5b087cd997dedf949a999fb78f154fd8, type: 2}
   crouchMedAnim: {fileID: 7400000, guid: 2cb300a8b561e0f4f926430c51bad764, type: 2}
   crouchHeavyAnim: {fileID: 7400000, guid: 78cfe97f67453834b8bbda0f436e8c18, type: 2}
-  jumpLightAnim: {fileID: 7400000, guid: fdc75f60e8860844583b14be67ca6aa0, type: 2}
-  jumpMedAnim: {fileID: 7400000, guid: ab55b425404094b48b3a81d92a01b0a4, type: 2}
-  jumpHeavyAnim: {fileID: 7400000, guid: aee3d478ab9f5bf459007d9b88a09231, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: 1a66caa942ff9c74faac15094aec1daf, type: 2}
+  jumpMedAnim: {fileID: 7400000, guid: c877a4733194d64499dde1a212d0336e, type: 2}
+  jumpHeavyAnim: {fileID: 7400000, guid: 8785663793a871b4ba74a47662fde98c, type: 2}
   spec1Anim: {fileID: 0}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 7400000, guid: 22c3ff4d477d0bb48856140398661e6d, type: 2}
-  blockAnim: {fileID: 7400000, guid: d2e55cca817934f4bb1c7ee791d59005, type: 2}
+  standingBlockAnim: {fileID: 7400000, guid: dae75583a2b0c3946b8635a3a6cae7b8, type: 2}
+  crouchingBlockAnim: {fileID: 7400000, guid: d2e55cca817934f4bb1c7ee791d59005, type: 2}

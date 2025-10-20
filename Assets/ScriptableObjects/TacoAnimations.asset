@@ -17,16 +17,19 @@ MonoBehaviour:
   jumpAnim: {fileID: 7400000, guid: fc836e43bcd0ebb43bab7d5d5426d983, type: 2}
   crouchAnim: {fileID: 7400000, guid: 2fa2210e89e296f439ee5a3ceba2f648, type: 2}
   fallAnim: {fileID: 7400000, guid: 90680971ab5240141804565dee742fc9, type: 2}
-  standLightAnim: {fileID: 7400000, guid: 92eda1f74ac74bb4681a6602f842caf2, type: 2}
-  standMedAnim: {fileID: 7400000, guid: c602d57817e956648a500cb2d9e69128, type: 2}
-  standHeavyAnim: {fileID: 7400000, guid: ec393109d9f975f44af5968ddd9f0bbf, type: 2}
-  crouchLightAnim: {fileID: 7400000, guid: 1745c7385a51c3a4399e79f11f10eac7, type: 2}
-  crouchMedAnim: {fileID: 7400000, guid: 07de7954f854ec248a01cba37087018e, type: 2}
-  crouchHeavyAnim: {fileID: 7400000, guid: 81297696de8c040498ba41b11632b6a8, type: 2}
-  jumpLightAnim: {fileID: 7400000, guid: d8a0baddbb0b4cc4585aa755589bb379, type: 2}
+  takingDamageAnim: {fileID: 7400000, guid: a325f582507b67d4f86634583c6f6f3f, type: 2}
+  entranceAnim: {fileID: 7400000, guid: 56c89acee639ea54a98fdc6d0c0155d4, type: 2}
+  standLightAnim: {fileID: 7400000, guid: b5499c4e716636240af3774eb0c39c8f, type: 2}
+  standMedAnim: {fileID: 7400000, guid: dfbe863718d50f841824260c3e0cb200, type: 2}
+  standHeavyAnim: {fileID: 7400000, guid: 552d29f198c76cb4094bbe2025c0dbac, type: 2}
+  crouchLightAnim: {fileID: 7400000, guid: 308789169c986af4dbff120a1fd3727b, type: 2}
+  crouchMedAnim: {fileID: 7400000, guid: 81a9faf690b7ac1459eab2e87978e65c, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: c6dea910eed49974b96f377bc199c4b0, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: 81297696de8c040498ba41b11632b6a8, type: 2}
   jumpMedAnim: {fileID: 7400000, guid: bbe883695088e2d4380d33abdd8b8da3, type: 2}
   jumpHeavyAnim: {fileID: 7400000, guid: accba1942a02c1645b42c8f76f2334d4, type: 2}
   spec1Anim: {fileID: 7400000, guid: 8486c8fb14b3f2647bdecfd02ed02022, type: 2}
   spec2Anim: {fileID: 0}
-  superAnim: {fileID: 7400000, guid: 8486c8fb14b3f2647bdecfd02ed02022, type: 2}
-  blockAnim: {fileID: 0}
+  superAnim: {fileID: 7400000, guid: d3df9486de8d1f846a668308bfa70383, type: 2}
+  standingBlockAnim: {fileID: 7400000, guid: 4afd270daf87bc44ca9fd6972974d494, type: 2}
+  crouchingBlockAnim: {fileID: 7400000, guid: 1e71492a122cfd049a543cf4b023cc2c, type: 2}

@@ -17,19 +17,19 @@ MonoBehaviour:
   jumpAnim: {fileID: 7400000, guid: 91719c443a78ca24786aa98e87b4db23, type: 2}
   crouchAnim: {fileID: 7400000, guid: ee79fa8098aa2c547bf6614689c8f4fb, type: 2}
   fallAnim: {fileID: 7400000, guid: 044c1ede9fe86d2439d7399c2da44391, type: 2}
-  takingDamageAnim: {fileID: 0}
+  takingDamageAnim: {fileID: 7400000, guid: c7c829495959f90469c672cbe0dc6fe2, type: 2}
   entranceAnim: {fileID: 7400000, guid: d6b24262d7c8d844abbfc0b54081610c, type: 2}
-  standLightAnim: {fileID: 7400000, guid: d0e204a048cb55f4e88ae0aad90faf51, type: 2}
-  standMedAnim: {fileID: 7400000, guid: 0e2bd9452bbb0e541b868bfffbd77474, type: 2}
-  standHeavyAnim: {fileID: 7400000, guid: 9a2259449ce4dd843a916ab1d053b0b9, type: 2}
-  crouchLightAnim: {fileID: 7400000, guid: f1f25d7c01e2f5244889c9830a4d03b8, type: 2}
-  crouchMedAnim: {fileID: 7400000, guid: 1ef91486268c28c479cced68eca251ec, type: 2}
-  crouchHeavyAnim: {fileID: 7400000, guid: e9d6320f2cb70ae4e8d376766f5900fb, type: 2}
+  standLightAnim: {fileID: 7400000, guid: a777d9ec57d1177459ff517d275f5970, type: 2}
+  standMedAnim: {fileID: 7400000, guid: 18f756488d1f9c044b482822d2189447, type: 2}
+  standHeavyAnim: {fileID: 7400000, guid: cff199f2e8a053e448f21494f21c9dfc, type: 2}
+  crouchLightAnim: {fileID: 7400000, guid: 399a99dcdfbec9943b2e366dcc26ff29, type: 2}
+  crouchMedAnim: {fileID: 7400000, guid: f409598e6e81473439a7b880c8ca831a, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: 73aa29dd1d8fde240b3a38152059cc75, type: 2}
   jumpLightAnim: {fileID: 7400000, guid: 85e56997179fb1245b72e3dc3610b04d, type: 2}
   jumpMedAnim: {fileID: 7400000, guid: f9b98ff1fcf24f04282be98e81b23738, type: 2}
   jumpHeavyAnim: {fileID: 7400000, guid: 513fe4ee77a874e4787a89c6c788bfd4, type: 2}
   spec1Anim: {fileID: 0}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 0}
-  standingBlockAnim: {fileID: 7400000, guid: 2c5fe9261668f0d4c889ae4beacd46e3, type: 2}
+  standingBlockAnim: {fileID: 7400000, guid: f7e6f970013b4754b87f066d3d2978c5, type: 2}
   crouchingBlockAnim: {fileID: 7400000, guid: 4bee9b52847befc47aa3047b22982dbd, type: 2}

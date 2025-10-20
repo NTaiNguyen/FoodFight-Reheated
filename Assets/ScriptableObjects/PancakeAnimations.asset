@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15577133062264894a7061dc11f5e8, type: 3}
   m_Name: PancakeAnimations
   m_EditorClassIdentifier: 
-  standAnim: {fileID: 7400000, guid: bc90544e49e2a20448478bb2e6b9dca4, type: 2}
+  standAnim: {fileID: 7400000, guid: 03d34de0501763e46840ffcbaa1ccead, type: 2}
   walkAnim: {fileID: 7400000, guid: e1f1701189a246e448bc1698d7803b2c, type: 2}
-  jumpAnim: {fileID: 7400000, guid: 37d3288190c0b5048906563cfce513a6, type: 2}
+  jumpAnim: {fileID: 7400000, guid: 4fe9def4320b121428c720e77f2072d5, type: 2}
   crouchAnim: {fileID: 7400000, guid: 620157e83c6058240a617efba9a97c75, type: 2}
-  fallAnim: {fileID: 7400000, guid: 94ef5fc181dcc9f43a2543e4fe0cff23, type: 2}
-  takingDamageAnim: {fileID: 7400000, guid: f745e7cfa0b8fd549b1cb14c60d6c565, type: 2}
+  fallAnim: {fileID: 7400000, guid: 387c8503a47aa63458b3ac0cbf49e4d3, type: 2}
+  takingDamageAnim: {fileID: 7400000, guid: bb42e59fccd0e60439c9406ed71b8749, type: 2}
   entranceAnim: {fileID: 0}
   standLightAnim: {fileID: 7400000, guid: 38ff400db8e6e6b40b3037192b419b6f, type: 2}
   standMedAnim: {fileID: 7400000, guid: ba32c7f0c646fa84998981f61302eee2, type: 2}
@@ -28,8 +28,8 @@ MonoBehaviour:
   jumpLightAnim: {fileID: 7400000, guid: 7c8082bc98616004e9faf24bd0cf96ab, type: 2}
   jumpMedAnim: {fileID: 7400000, guid: cff9cf848a6d57747a943b5915c468e1, type: 2}
   jumpHeavyAnim: {fileID: 7400000, guid: cf74230491c55b247897da25b0e82381, type: 2}
-  spec1Anim: {fileID: 7400000, guid: 7413041178edb724b9f9c18f066bdf8c, type: 2}
+  spec1Anim: {fileID: 7400000, guid: f1fd03adb1f25894ea837faefa7cef74, type: 2}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 7400000, guid: f574f014a3cc9894e95e88c3e966414b, type: 2}
-  standingBlockAnim: {fileID: 7400000, guid: 3793e29850c94a24ca19986279d6b663, type: 2}
+  standingBlockAnim: {fileID: 7400000, guid: f652242aca4ac8d4cb898d7017567fa6, type: 2}
   crouchingBlockAnim: {fileID: 7400000, guid: e0023cf457bce074ab698e60d75f5fbc, type: 2}
