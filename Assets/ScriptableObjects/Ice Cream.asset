@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15577133062264894a7061dc11f5e8, type: 3}
   m_Name: Ice Cream
   m_EditorClassIdentifier: 
-  standAnim: {fileID: 0}
-  walkAnim: {fileID: 0}
-  jumpAnim: {fileID: 0}
-  crouchAnim: {fileID: 0}
-  fallAnim: {fileID: 0}
-  standLightAnim: {fileID: 0}
-  standMedAnim: {fileID: 0}
-  standHeavyAnim: {fileID: 0}
-  crouchLightAnim: {fileID: 0}
-  crouchMedAnim: {fileID: 0}
-  crouchHeavyAnim: {fileID: 0}
-  jumpLightAnim: {fileID: 0}
-  jumpMedAnim: {fileID: 0}
-  jumpHeavyAnim: {fileID: 0}
+  standAnim: {fileID: 7400000, guid: b2e2e69ccbc3a5c4087c9ce0ad78b898, type: 2}
+  walkAnim: {fileID: 7400000, guid: 8f97667bd66f3844ba35e63773ec7ab6, type: 2}
+  jumpAnim: {fileID: 7400000, guid: 184cc9db42fedde48b71a8e8e6b78e2d, type: 2}
+  crouchAnim: {fileID: 7400000, guid: 9d676eafe7f87414c8351d1c2022ab2c, type: 2}
+  fallAnim: {fileID: 7400000, guid: e374cb00b33a19545aa58906cb74a61d, type: 2}
+  takingDamageAnim: {fileID: 7400000, guid: 44187b18928da854eb2720ffcef451be, type: 2}
+  entranceAnim: {fileID: 0}
+  standLightAnim: {fileID: 7400000, guid: 269241e73c73193449b7948e934987f5, type: 2}
+  standMedAnim: {fileID: 7400000, guid: bf5fdb522b438b24caf90fb8775bd4c3, type: 2}
+  standHeavyAnim: {fileID: 7400000, guid: 2c83e908cbe94f34da2d70a5ad718c66, type: 2}
+  crouchLightAnim: {fileID: 7400000, guid: bbdea0b672c9a274cab8263f10dc9767, type: 2}
+  crouchMedAnim: {fileID: 7400000, guid: 3980086b5d1ead54c8f6c9dff359224b, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: 86d62fc107ecfc045aabde1e4cc41dc4, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: 67b62ea0426fa924092fd50975d46ef5, type: 2}
+  jumpMedAnim: {fileID: 7400000, guid: 1f9c09daed785dd45a259122ace5397c, type: 2}
+  jumpHeavyAnim: {fileID: 7400000, guid: 100eca19bd35d2f488833b27b4ae4e42, type: 2}
   spec1Anim: {fileID: 0}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 0}
-  blockAnim: {fileID: 0}
+  standingBlockAnim: {fileID: 7400000, guid: 08763ac2630655b44b616b3078404e36, type: 2}
+  crouchingBlockAnim: {fileID: 7400000, guid: bd43c4f5c7371f34c90b6ad88ac05064, type: 2}
