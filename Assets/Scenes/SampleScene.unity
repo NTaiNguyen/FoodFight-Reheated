@@ -339,7 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0664d88f97de375489209b96cc47d313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animSet: {fileID: 11400000, guid: 9842da1071f43ae4383770688a204031, type: 2}
+  baseController: {fileID: 9100000, guid: bf24c901cdf5dce45b4dcb24f2d4bb3f, type: 2}
+  animSet: {fileID: 11400000, guid: 5af95b5a6de637748a0e4cfbe16cebed, type: 2}
 --- !u!61 &581858195
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -664,7 +665,7 @@ Animator:
   m_GameObject: {fileID: 744290469}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ed89ca5ac8ed18d4ea33aa6c0a58cac3, type: 2}
+  m_Controller: {fileID: 9100000, guid: b493a5064daf6924bb92725033266f44, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
