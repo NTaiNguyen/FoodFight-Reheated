@@ -21,7 +21,7 @@ MonoBehaviour:
   entranceAnim: {fileID: 0}
   standLightAnim: {fileID: 7400000, guid: 38ff400db8e6e6b40b3037192b419b6f, type: 2}
   standMedAnim: {fileID: 7400000, guid: ba32c7f0c646fa84998981f61302eee2, type: 2}
-  standHeavyAnim: {fileID: 7400000, guid: b30d5cd6362f8f04a908a8f24cc17242, type: 2}
+  standHeavyAnim: {fileID: 7400000, guid: 9242d7a63f9301241be344d59273a42c, type: 2}
   crouchLightAnim: {fileID: 7400000, guid: 2f7bcd4584e692445b0da10cab372686, type: 2}
   crouchMedAnim: {fileID: 7400000, guid: 7cea43a794f108c40a5b45541f99957e, type: 2}
   crouchHeavyAnim: {fileID: 7400000, guid: f9cf6f77660713542903c25914d1ccf5, type: 2}
