@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections.Generic;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController baseController;
@@ -25,7 +25,6 @@ public class AnimationController : MonoBehaviour
         _animator.runtimeAnimatorController = _override;  // assign before Start
 
 
-
     }
     void Start()
     {
@@ -38,7 +37,6 @@ public class AnimationController : MonoBehaviour
 
         ApplyAnimationSet(animSet);
 
-        _animator.Play("Idle", 0, 0f);
 
     }
 
@@ -68,7 +66,7 @@ public class AnimationController : MonoBehaviour
                 case ActionState.SH: _animator.Play("SH", 0, 0f); break;
                 case ActionState.CL: _animator.Play("CL", 0, 0f); break;
                 case ActionState.CM: _animator.Play("CM", 0, 0f); break;
-                case ActionState.CH: _animator.Play("SH", 0, 0f); break;
+                case ActionState.CH: _animator.Play("CH", 0, 0f); break;
                 case ActionState.JL: _animator.Play("JL", 0, 0f); break;
                 case ActionState.JM: _animator.Play("JM", 0, 0f); break;
                 case ActionState.JH: _animator.Play("JH", 0, 0f); break;
@@ -86,17 +84,21 @@ public class AnimationController : MonoBehaviour
     }
 
     private void ApplyAnimationSet(AnimationSet set) {
+        
         if (set == null) return;
 
         void SafeAssign(string stateName, AnimationClip clip) {
             if (clip != null) {
                 // Directly assign the clip to the state in the override controller
                 _override[stateName] = clip;
-                //Debug.Log($"Overridden '{stateName}' with clip '{clip.name}'");
+                Debug.Log($"Overridden '{stateName}' with clip '{clip.name}'");
             }
         }
 
         // Movement
+        
+
+
         SafeAssign("Idle", set.standAnim);
         SafeAssign("Walk", set.walkAnim);
         SafeAssign("Jump", set.jumpAnim);
@@ -123,6 +125,13 @@ public class AnimationController : MonoBehaviour
         // Defense
         SafeAssign("StandBlock", set.standingBlockAnim);
         SafeAssign("CrouchBlock", set.crouchingBlockAnim);
+
+        /*List<KeyValuePair<AnimationClip, AnimationClip>> list = new();
+        _override.GetOverrides(list);
+        foreach (var pair in list)
+            Debug.Log($"Original: {pair.Key.name}, New: {(pair.Value != null ? pair.Value.name : "None")}");*/
+
+
     }
 
 

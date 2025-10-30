@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db15577133062264894a7061dc11f5e8, type: 3}
   m_Name: PancakeAnimations
   m_EditorClassIdentifier: 
-  standAnim: {fileID: 7400000, guid: 03d34de0501763e46840ffcbaa1ccead, type: 2}
+  standAnim: {fileID: 7400000, guid: a12c78c38def96243a8c0aca76642bd4, type: 2}
   walkAnim: {fileID: 7400000, guid: e1f1701189a246e448bc1698d7803b2c, type: 2}
   jumpAnim: {fileID: 7400000, guid: 4fe9def4320b121428c720e77f2072d5, type: 2}
   crouchAnim: {fileID: 7400000, guid: 620157e83c6058240a617efba9a97c75, type: 2}

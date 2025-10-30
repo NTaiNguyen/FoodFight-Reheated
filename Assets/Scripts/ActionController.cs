@@ -42,12 +42,15 @@ public class ActionController : MonoBehaviour {
                     sAct = ActionState.CH;
                     break;
                 case (MoveState.JUMP, ButtonInput.LIGHT):
+                case (MoveState.FALL, ButtonInput.LIGHT):
                     sAct = ActionState.JL;
                     break;
                 case (MoveState.JUMP, ButtonInput.MEDIUM):
+                case (MoveState.FALL, ButtonInput.MEDIUM):
                     sAct = ActionState.JM;
                     break;
                 case (MoveState.JUMP, ButtonInput.HEAVY):
+                case (MoveState.FALL, ButtonInput.HEAVY):
                     sAct = ActionState.JH;
                     break;
             }
