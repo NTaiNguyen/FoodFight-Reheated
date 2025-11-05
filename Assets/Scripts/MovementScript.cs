@@ -4,7 +4,8 @@ public enum MoveState {
     CROUCH,
     JUMP,
     WALK,
-    FALL
+    FALL,
+    ARIAL
 }
 public enum ActionState {
     NONE,
@@ -41,12 +42,13 @@ public class MovementScript : MonoBehaviour
     public MoveState sMove { get; private set; }
     private InputDirection direction = InputDirection.Neutral;
     private Vector2 input;
-
+    private ActionController _action;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         rb = GetComponent<Rigidbody2D>();
         box = GetComponent<BoxCollider2D>();
+        _action = GetComponent<ActionController>();
         defaultSize = box.size;
         defaultOffset = box.offset;
         crouchHeight = defaultSize.y * .75f;
@@ -66,6 +68,7 @@ public class MovementScript : MonoBehaviour
         direction = GetDirection(input);
         
         if (!isGrounded) return;
+        if (_action.isAttacking) return;
 
         switch (direction) {
             case InputDirection.Right:
