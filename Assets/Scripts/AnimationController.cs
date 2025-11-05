@@ -28,12 +28,9 @@ public class AnimationController : MonoBehaviour
     }
     void Start()
     {
-        //_animator = GetComponentInChildren<Animator>();
         _movement = GetComponent<MovementScript>();
         _action = GetComponent<ActionController>();
         lastMove = _movement.sMove;
-        //_override = new AnimatorOverrideController(baseController);
-        //_animator.runtimeAnimatorController = _override;
 
         ApplyAnimationSet(animSet);
 
@@ -46,42 +43,24 @@ public class AnimationController : MonoBehaviour
         newMove = _movement.sMove;
         newAct = _action.sAct;
 
-        if (newMove != lastMove) {
+        // if the new action is nothing and the 
+        if (newAct != ActionState.NONE) {
+            if (newAct != lastAct){
+                lastAct = newAct;
+                PlayActionAnimation(newAct);
+            }
+            return;
+        }
+
+        if(newMove != lastMove) {
             lastMove = newMove;
-            switch (newMove) {
-                case MoveState.STAND: _animator.Play("Idle", 0, 0f); break;
-                case MoveState.WALK: _animator.Play("Walk", 0, 0f); break;
-                case MoveState.JUMP: _animator.Play("Jump", 0, 0f); break;
-                case MoveState.FALL: _animator.Play("Fall", 0, 0f); break;
-                case MoveState.CROUCH: _animator.Play("Crouch", 0, 0f); break;
-            }
-        }
-
-        if (newAct != lastAct) {
-            lastAct = newAct;
-
-            switch (newAct) {
-                case ActionState.SL: _animator.Play("SL", 0, 0f); break;
-                case ActionState.SM: _animator.Play("SM", 0, 0f); break;
-                case ActionState.SH: _animator.Play("SH", 0, 0f); break;
-                case ActionState.CL: _animator.Play("CL", 0, 0f); break;
-                case ActionState.CM: _animator.Play("CM", 0, 0f); break;
-                case ActionState.CH: _animator.Play("CH", 0, 0f); break;
-                case ActionState.JL: _animator.Play("JL", 0, 0f); break;
-                case ActionState.JM: _animator.Play("JM", 0, 0f); break;
-                case ActionState.JH: _animator.Play("JH", 0, 0f); break;
-            }
-
-            _action.Reset();
+            PlayMoveAnimation(newMove);
         }
 
 
     }
 
-    public void OnActionComplete() {
-        _animator.Play("Idle", 0, 0f);
-        _action.Reset();
-    }
+   
 
     private void ApplyAnimationSet(AnimationSet set) {
         
@@ -91,7 +70,7 @@ public class AnimationController : MonoBehaviour
             if (clip != null) {
                 // Directly assign the clip to the state in the override controller
                 _override[stateName] = clip;
-                Debug.Log($"Overridden '{stateName}' with clip '{clip.name}'");
+                //Debug.Log($"Overridden '{stateName}' with clip '{clip.name}'");
             }
         }
 
@@ -126,13 +105,32 @@ public class AnimationController : MonoBehaviour
         SafeAssign("StandBlock", set.standingBlockAnim);
         SafeAssign("CrouchBlock", set.crouchingBlockAnim);
 
-        /*List<KeyValuePair<AnimationClip, AnimationClip>> list = new();
-        _override.GetOverrides(list);
-        foreach (var pair in list)
-            Debug.Log($"Original: {pair.Key.name}, New: {(pair.Value != null ? pair.Value.name : "None")}");*/
-
-
     }
+
+    private void PlayActionAnimation(ActionState act) {
+        switch (act) {
+            case ActionState.SL: _animator.Play("SL", 0, 0f); break;
+            case ActionState.SM: _animator.Play("SM", 0, 0f); break;
+            case ActionState.SH: _animator.Play("SH", 0, 0f); break;
+            case ActionState.CL: _animator.Play("CL", 0, 0f); break;
+            case ActionState.CM: _animator.Play("CM", 0, 0f); break;
+            case ActionState.CH: _animator.Play("CH", 0, 0f); break;
+            case ActionState.JL: _animator.Play("JL", 0, 0f); break;
+            case ActionState.JM: _animator.Play("JM", 0, 0f); break;
+            case ActionState.JH: _animator.Play("JH", 0, 0f); break;
+        }
+    }
+
+    private void PlayMoveAnimation(MoveState move) {
+        switch (move) {
+            case MoveState.STAND: _animator.Play("Idle", 0, 0f); break;
+            case MoveState.WALK: _animator.Play("Walk", 0, 0f); break;
+            case MoveState.JUMP: _animator.Play("Jump", 0, 0f); break;
+            case MoveState.FALL: _animator.Play("Fall", 0, 0f); break;
+            case MoveState.CROUCH: _animator.Play("Crouch", 0, 0f); break;
+        }
+    }
+
 
 
 }

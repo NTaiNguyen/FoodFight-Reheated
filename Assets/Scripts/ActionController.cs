@@ -5,6 +5,8 @@ public class ActionController : MonoBehaviour {
     private InputMapper mapper;
     private MovementScript _movement;
     public ActionState sAct { get; private set; }
+    public bool isAttacking { get; private set; }
+    private MoveState currentState;
 
     void Start()
     {
@@ -16,17 +18,32 @@ public class ActionController : MonoBehaviour {
     void Update()
     {
         UpdateState();
+        Debug.Log($"Current Action: {sAct}");
+
     }
 
 
     void UpdateState() {
+        // if already attacking exit
+        if (isAttacking) return;
         var button = mapper.GetPressedButton();
+
         if (button.HasValue) {
-            switch ((_movement.sMove, button)) {
+            //Combines the jump and fall state into arial so animations dont cancel when switching
+            if (_movement.sMove == MoveState.JUMP || _movement.sMove == MoveState.FALL) {
+                currentState = MoveState.ARIAL;
+            }
+            else {currentState = _movement.sMove;}
+
+            //isAttacking = true;
+
+            switch ((currentState, button)) {
                 case (MoveState.STAND, ButtonInput.LIGHT):
+                case (MoveState.WALK, ButtonInput.LIGHT):
                     sAct = ActionState.SL;
                     break;
                 case (MoveState.STAND, ButtonInput.MEDIUM):
+                case (MoveState.WALK, ButtonInput.MEDIUM):
                     sAct = ActionState.SM;
                     break;
                 case (MoveState.STAND, ButtonInput.HEAVY):
@@ -41,25 +58,28 @@ public class ActionController : MonoBehaviour {
                 case (MoveState.CROUCH, ButtonInput.HEAVY):
                     sAct = ActionState.CH;
                     break;
-                case (MoveState.JUMP, ButtonInput.LIGHT):
-                case (MoveState.FALL, ButtonInput.LIGHT):
+                case (MoveState.ARIAL, ButtonInput.LIGHT):
                     sAct = ActionState.JL;
                     break;
-                case (MoveState.JUMP, ButtonInput.MEDIUM):
-                case (MoveState.FALL, ButtonInput.MEDIUM):
+                case (MoveState.ARIAL, ButtonInput.MEDIUM):
                     sAct = ActionState.JM;
                     break;
-                case (MoveState.JUMP, ButtonInput.HEAVY):
-                case (MoveState.FALL, ButtonInput.HEAVY):
+                case (MoveState.ARIAL, ButtonInput.HEAVY):
                     sAct = ActionState.JH;
                     break;
-            }
+                }
+
         }
     }
 
     public void Reset() {
+        Debug.Log($"[ActionController] Reset called on {gameObject.name}. sAct before: {sAct}");
         sAct = ActionState.NONE;
+        isAttacking = false;
+        Debug.Log($"[ActionController] sAct after: {sAct}, isAttacking: {isAttacking}");
     }
 
-
+    public void StartAttack() {
+        isAttacking = true;
+    }
 }
