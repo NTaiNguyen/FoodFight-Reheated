@@ -551,6 +551,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerObject (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4780497765059133432, guid: b0428e0421a59e34cbbcb772d37fdabf, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5334719517528594340, guid: b0428e0421a59e34cbbcb772d37fdabf, type: 3}
       propertyPath: animSet
       value: 
