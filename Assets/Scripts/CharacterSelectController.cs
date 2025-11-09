@@ -48,8 +48,12 @@ public class CharacterSelectController : MonoBehaviour
 
         if (p1Locked && p2Locked)
         {
+            // 
             GameData.selectedP1 = characterPortraits[p1Index];
             GameData.selectedP2 = characterPortraits[p2Index];
+            GameData.characterP1 = (CharacterSelection)p1Index;
+            GameData.characterP2 = (CharacterSelection)p2Index;
+
 
             // Change this later to whatever scene we use
             SceneManager.LoadScene("SampleScene");
@@ -93,4 +97,5 @@ public class CharacterSelectController : MonoBehaviour
             Debug.Log("Player 2 has selected");
         }
     }
+
 }
