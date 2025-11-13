@@ -22,12 +22,12 @@ MonoBehaviour:
   standLightAnim: {fileID: 7400000, guid: 27a2cfb1f717e22438535c380cfa9653, type: 2}
   standMedAnim: {fileID: 7400000, guid: ef57dbdcee1316e44ae22a289cd6e430, type: 2}
   standHeavyAnim: {fileID: 7400000, guid: 68935c013127f0b4d9260f8093cf38bd, type: 2}
-  crouchLightAnim: {fileID: 0}
-  crouchMedAnim: {fileID: 0}
-  crouchHeavyAnim: {fileID: 0}
-  jumpLightAnim: {fileID: 0}
-  jumpMedAnim: {fileID: 0}
-  jumpHeavyAnim: {fileID: 0}
+  crouchLightAnim: {fileID: 7400000, guid: ee78056fe475cc649b20cbbfffee7bd7, type: 2}
+  crouchMedAnim: {fileID: 7400000, guid: 8f4b42722aa58234790008b1a5752179, type: 2}
+  crouchHeavyAnim: {fileID: 7400000, guid: 8102201efe82ee249ba15a96ccca4a75, type: 2}
+  jumpLightAnim: {fileID: 7400000, guid: 520a5c487399654479de565b5663c23b, type: 2}
+  jumpMedAnim: {fileID: 7400000, guid: 2319074b64c8fbd4797d4dccc0054767, type: 2}
+  jumpHeavyAnim: {fileID: 7400000, guid: 5566f144ab0a7ad4e959d1cc258aea97, type: 2}
   spec1Anim: {fileID: 0}
   spec2Anim: {fileID: 0}
   superAnim: {fileID: 0}
