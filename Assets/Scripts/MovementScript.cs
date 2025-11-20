@@ -58,17 +58,17 @@ public class MovementScript : MonoBehaviour
     void Update(){
         HandleMovement();
         UpdateState();
-        
 
+        Debug.Log($"MovementState: {sMove}");
     }
 
 
     private void HandleMovement() {
+        if (_action.isAttacking || !isGrounded) return;
         input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         direction = GetDirection(input);
         
-        if (!isGrounded) return;
-        if (_action.isAttacking) return;
+        
 
         switch (direction) {
             case InputDirection.Right:
@@ -104,7 +104,8 @@ public class MovementScript : MonoBehaviour
     private void UpdateState() {
         float verticalInput = Input.GetAxisRaw("Vertical");
         float deadzone = 0.1f;
-
+        Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        InputDirection direction = GetDirection(directionalInput);
         if (!isGrounded) {
             sMove = rb.linearVelocity.y > 0 ? MoveState.JUMP : MoveState.FALL;
         }
@@ -115,10 +116,10 @@ public class MovementScript : MonoBehaviour
             }
             else if (crouchLocked && verticalInput >= -deadzone) {
                 crouchLocked = false;
-                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 ? MoveState.WALK : MoveState.STAND;
+                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 && direction != InputDirection.Neutral ? MoveState.WALK : MoveState.STAND;
             }
             else if (!crouchLocked) {
-                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 ? MoveState.WALK : MoveState.STAND;
+                sMove = Mathf.Abs(rb.linearVelocity.x) > 0 && direction != InputDirection.Neutral ? MoveState.WALK : MoveState.STAND;
             }
         }
 

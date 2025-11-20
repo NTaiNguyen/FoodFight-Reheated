@@ -43,24 +43,26 @@ public class AnimationController : MonoBehaviour
         newMove = _movement.sMove;
         newAct = _action.sAct;
 
-        // if the new action is nothing and the 
         if (newAct != ActionState.NONE) {
-            if (newAct != lastAct){
+            if (newAct != lastAct) {
                 lastAct = newAct;
                 PlayActionAnimation(newAct);
             }
-            return;
+            return; // Don't update movement during attack
         }
 
-        if(newMove != lastMove) {
-            lastMove = newMove;
-            PlayMoveAnimation(newMove);
+        // --- Resume movement after attack ends ---
+        if (!_action.isAttacking) {
+            // Only play if movement state changed OR coming out of an attack
+            if (newMove != lastMove || lastAct != ActionState.NONE) {
+                lastMove = newMove;
+                lastAct = ActionState.NONE;
+                PlayMoveAnimation(newMove);
+            }
         }
-
-
     }
 
-   
+
 
     private void ApplyAnimationSet(AnimationSet set) {
         

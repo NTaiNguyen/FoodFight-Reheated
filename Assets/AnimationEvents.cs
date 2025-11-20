@@ -22,7 +22,7 @@ public class AnimationEvents : MonoBehaviour
 
     public void OnAttackComplete() {
         _action.Reset();
-        _animator.Play("Idle");
+        
     }
 
 
