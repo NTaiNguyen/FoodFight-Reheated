@@ -5,7 +5,7 @@ public class ActionController : MonoBehaviour {
     private InputMapper mapper;
     private MovementScript _movement;
     public ActionState sAct { get; private set; }
-    public bool isAttacking { get; private set; }
+    public bool isAttacking;
     private MoveState currentState;
 
     void Start()
@@ -19,6 +19,7 @@ public class ActionController : MonoBehaviour {
     {
         UpdateState();
         Debug.Log($"Current Action: {sAct}");
+        Debug.Log("isAttacking = " + isAttacking);
 
     }
 
@@ -35,7 +36,6 @@ public class ActionController : MonoBehaviour {
             }
             else {currentState = _movement.sMove;}
 
-            //isAttacking = true;
 
             switch ((currentState, button)) {
                 case (MoveState.STAND, ButtonInput.LIGHT):
@@ -73,10 +73,8 @@ public class ActionController : MonoBehaviour {
     }
 
     public void Reset() {
-        Debug.Log($"[ActionController] Reset called on {gameObject.name}. sAct before: {sAct}");
         sAct = ActionState.NONE;
         isAttacking = false;
-        Debug.Log($"[ActionController] sAct after: {sAct}, isAttacking: {isAttacking}");
     }
 
     public void StartAttack() {
