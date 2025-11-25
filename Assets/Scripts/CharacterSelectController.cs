@@ -126,6 +126,10 @@ public class CharacterSelectController : MonoBehaviour
     private bool p1Locked = false;
     private bool p2Locked = false;
 
+    // Working on maps swapping
+    public int totalMaps = 2;
+
+
     void Start()
     {
         Debug.Log("CharacterSelectController is active.");
@@ -198,22 +202,26 @@ public class CharacterSelectController : MonoBehaviour
         if (p2Cursor != null && characterSlots[p2Index] != null)
             p2Cursor.anchoredPosition = characterSlots[p2Index].anchoredPosition;
 
+
         if (p1Locked && p2Locked)
-        {
+{
             Debug.Log("Locked in");
-            // Safe guards for portraits array
+
+            // Store character selection
             if (characterPortraits != null && p1Index < characterPortraits.Length && p2Index < characterPortraits.Length)
             {
                 GameData.selectedP1 = characterPortraits[p1Index];
                 GameData.selectedP2 = characterPortraits[p2Index];
             }
-            else
-            {
-                Debug.LogWarning("characterPortraits not assigned or length mismatch; defaulting selections.");
-            }
 
             GameData.characterP1 = (CharacterSelection)p1Index;
             GameData.characterP2 = (CharacterSelection)p2Index;
+
+            GameData.totalMaps = totalMaps;
+
+            // HARDCODING THE NUMBER OF MAPS BECAUSE USING A VARIABLE DID NOT WORK.
+            GameData.selectedMapIndex = Random.Range(0, 6);
+            Debug.Log("Selected map index = " + GameData.selectedMapIndex);
 
             SceneManager.LoadScene("SampleScene");
         }
