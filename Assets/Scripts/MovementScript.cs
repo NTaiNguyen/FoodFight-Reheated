@@ -59,7 +59,7 @@ public class MovementScript : MonoBehaviour
         HandleMovement();
         UpdateState();
 
-        Debug.Log($"MovementState: {sMove}");
+        //Debug.Log($"MovementState: {sMove}");
     }
 
 
