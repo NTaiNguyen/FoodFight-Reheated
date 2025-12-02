@@ -1,3 +1,4 @@
+using UnityEditor.PackageManager;
 using UnityEngine;
 public enum CharacterSelection {
     Pizza,
@@ -10,14 +11,16 @@ public enum CharacterSelection {
 
 // Stores what characters the players have selected so they can then be placed into the match
 // Also stores the maps
-public static class GameData
+public class GameData : MonoBehaviour
 {
-    public static GameObject selectedP1;
-    public static GameObject selectedP2;
+
+    // For character spawning
+    public static CharacterData selectedP1;
+    public static CharacterData selectedP2;
     public static CharacterSelection characterP1, characterP2;
-    public static CharacterBank bank;
+    public CharacterBank bank;
     public static int selectedMapIndex;
-    
+
     // Change this later when more maps are added
     public static int totalMaps = 2;
 

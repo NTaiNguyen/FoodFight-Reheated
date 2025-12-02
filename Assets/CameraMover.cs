@@ -9,8 +9,7 @@ public class CameraMover : MonoBehaviour
     {
         if (targetPosition != null)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPosition.position, Time.deltaTime * moveSpeed
-            );
+            transform.position = Vector3.Lerp(transform.position, targetPosition.position, Time.deltaTime * moveSpeed);
         }
     }
 

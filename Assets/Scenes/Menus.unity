@@ -3278,6 +3278,7 @@ GameObject:
   - component: {fileID: 1908244967}
   - component: {fileID: 1908244968}
   - component: {fileID: 1908244969}
+  - component: {fileID: 1908244970}
   m_Layer: 0
   m_Name: CharacterSelectController
   m_TagString: Untagged
@@ -3353,6 +3354,19 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 50}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &1908244970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908244966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c6474277e7a67d478cd3a5ff31ac894, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bank: {fileID: 11400000, guid: f8860bb7cd0b2414b9154d598e07c9bc, type: 2}
 --- !u!1 &1910406638
 GameObject:
   m_ObjectHideFlags: 0

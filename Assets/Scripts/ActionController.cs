@@ -7,10 +7,13 @@ public class ActionController : MonoBehaviour {
     public ActionState sAct { get; private set; }
     public bool isAttacking;
     private MoveState currentState;
+    public int playerID;
 
     void Start()
     {
         mapper = GetComponent<InputMapper>();
+        // Added by Cyler on 12/1/25
+        mapper.playerID = playerID;
         _movement = GetComponent<MovementScript>();
     }
 
