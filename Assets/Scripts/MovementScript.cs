@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 public enum MoveState {
     STAND,
@@ -44,6 +45,12 @@ public class MovementScript : MonoBehaviour
     private Vector2 input;
     private ActionController _action;
 
+    [Header("Player Config")]
+    public int playerID = 1; 
+
+    private string horizontalAxis;
+    private string verticalAxis;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start(){
         rb = GetComponent<Rigidbody2D>();
@@ -52,6 +59,20 @@ public class MovementScript : MonoBehaviour
         defaultSize = box.size;
         defaultOffset = box.offset;
         crouchHeight = defaultSize.y * .75f;
+        if (playerID == 1)
+        {
+            horizontalAxis = "Horizontal_P1";
+            verticalAxis = "Vertical_P1";
+        }
+        else if (playerID == 2)
+        {
+            horizontalAxis = "Horizontal_P2";
+            verticalAxis = "Vertical_P2";
+        }
+        else
+        {
+            Debug.LogError("Invalid playerID, must be 1 or 2!");
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +86,8 @@ public class MovementScript : MonoBehaviour
 
     private void HandleMovement() {
         if (_action.isAttacking || !isGrounded) return;
-        input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        input = new Vector2(Input.GetAxisRaw(horizontalAxis), Input.GetAxisRaw(verticalAxis));
+        if (Mathf.Abs(input.y) < 0.1f) input.y = 0f;
         direction = GetDirection(input);
         
         
@@ -132,6 +154,16 @@ public class MovementScript : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground")){
             isGrounded = true;
             sMove = MoveState.STAND;
+        }
+
+        if (collision.gameObject.CompareTag("Wall left"))
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        }
+
+        if (collision.gameObject.CompareTag("Wall right"))
+        {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
         }
     }
 
