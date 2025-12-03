@@ -7,7 +7,7 @@ public class AnimationController : MonoBehaviour
     private Animator _animator;
     private MovementScript _movement;
     private ActionController _action;
-    private AnimationSet animSet;
+    public AnimationSet animSet;
 
     private AnimatorOverrideController _override;
 
@@ -31,7 +31,6 @@ public class AnimationController : MonoBehaviour
         _movement = GetComponent<MovementScript>();
         _action = GetComponent<ActionController>();
         lastMove = _movement.sMove;
-        animSet = data.animationSet;
 
         ApplyAnimationSet(animSet);
 
