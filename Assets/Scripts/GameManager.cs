@@ -43,19 +43,20 @@
         GameObject p1 = Instantiate(prefab, player1Spawn.position, player1Spawn.rotation);
         AnimationController anim = p1.GetComponent<AnimationController>();
         anim.animSet = GameData.selectedP1.animationSet;
+        p1.GetComponent<MovementScript>().playerID = 1;
+        p1.GetComponent<ActionController>().playerID = 1;
         p1.name = "Player1";
 
-        // Telling game this is player 1
-        p1.GetComponent<ActionController>().playerID = 1;
 
         // Instantiate Player 2
         GameObject p2 = Instantiate(prefab, player2Spawn.position, player2Spawn.rotation);
         anim = p2.GetComponent<AnimationController>();
         anim.animSet = GameData.selectedP2.animationSet;
+        p2.GetComponent<MovementScript>().playerID = 2;
+        p2.GetComponent<ActionController>().playerID = 2;
         p2.name = "Player2";
 
-        // Telling game this is player 2
-        p2.GetComponent<ActionController>().playerID = 2;
+        
 
         Debug.Log("Spawned Player 1 and Player 2 into the battle scene.");
     }
