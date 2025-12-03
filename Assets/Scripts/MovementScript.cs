@@ -77,7 +77,12 @@ public class MovementScript : MonoBehaviour
 
     // Update is called once per frame
     void Update(){
-        HandleMovement();
+
+        if (_action.isAttacking && isGrounded) {
+            rb.linearVelocity = new Vector2(0, rb.linearVelocity.y);
+        } else {
+            HandleMovement();
+        }
         UpdateState();
 
         //Debug.Log($"MovementState: {sMove}");
@@ -124,9 +129,9 @@ public class MovementScript : MonoBehaviour
     private bool crouchLocked = false;
 
     private void UpdateState() {
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        float verticalInput = Input.GetAxisRaw(verticalAxis);
         float deadzone = 0.1f;
-        Vector2 directionalInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 directionalInput = new Vector2(Input.GetAxisRaw(horizontalAxis), Input.GetAxisRaw(verticalAxis));
         InputDirection direction = GetDirection(directionalInput);
         if (!isGrounded) {
             sMove = rb.linearVelocity.y > 0 ? MoveState.JUMP : MoveState.FALL;
