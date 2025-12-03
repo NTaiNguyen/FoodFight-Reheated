@@ -46,6 +46,7 @@
         p1.GetComponent<MovementScript>().playerID = 1;
         p1.GetComponent<ActionController>().playerID = 1;
         p1.name = "Player1";
+        p1.tag = "Player1";
 
 
         // Instantiate Player 2
@@ -55,6 +56,7 @@
         p2.GetComponent<MovementScript>().playerID = 2;
         p2.GetComponent<ActionController>().playerID = 2;
         p2.name = "Player2";
+        p2.tag = "Player2";
 
         
 
