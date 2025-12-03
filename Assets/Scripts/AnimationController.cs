@@ -3,11 +3,12 @@ using System.Collections.Generic;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController baseController;
-    public AnimationSet animSet;
+    [SerializeField] private CharacterData data;
     private Animator _animator;
     private MovementScript _movement;
     private ActionController _action;
-    
+    private AnimationSet animSet;
+
     private AnimatorOverrideController _override;
 
     private MoveState newMove;
@@ -24,13 +25,13 @@ public class AnimationController : MonoBehaviour
         _override = new AnimatorOverrideController(baseController);
         _animator.runtimeAnimatorController = _override;  // assign before Start
 
-
     }
     void Start()
     {
         _movement = GetComponent<MovementScript>();
         _action = GetComponent<ActionController>();
         lastMove = _movement.sMove;
+        animSet = data.animationSet;
 
         ApplyAnimationSet(animSet);
 

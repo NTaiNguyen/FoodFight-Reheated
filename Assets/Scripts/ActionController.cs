@@ -21,8 +21,8 @@ public class ActionController : MonoBehaviour {
     void Update()
     {
         UpdateState();
-        Debug.Log($"Current Action: {sAct}");
-        Debug.Log("isAttacking = " + isAttacking);
+        //Debug.Log($"Current Action: {sAct}");
+        //Debug.Log("isAttacking = " + isAttacking);
 
     }
 
