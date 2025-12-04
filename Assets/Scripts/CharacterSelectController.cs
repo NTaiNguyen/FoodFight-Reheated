@@ -31,6 +31,17 @@ public class CharacterSelectController : MonoBehaviour
 
     void Start()
     {
+        int mode = PlayerPrefs.GetInt("GameMode");
+
+        if (mode == 0)
+        {
+            Debug.Log("Mode = P1 vs AI");
+        } 
+        else
+        {
+            Debug.Log("Mode = P1 vs P2");
+        }
+            
         gameData = GetComponent<GameData>();
         Debug.Log("CharacterSelectController is active.");
 

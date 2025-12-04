@@ -52,7 +52,7 @@ public class DynamicCameraMovement : MonoBehaviour
     {
         Vector3 midpoint = (player1.position + player2.position) / 2f;
 
-        float fixedY = midpoint.y + 1;
+        float fixedY = midpoint.y + 2;
         Vector3 newPos = new Vector3(midpoint.x, fixedY, transform.position.z);
 
         transform.position = Vector3.SmoothDamp(transform.position, newPos, ref velocity, smoothTime);
