@@ -5,6 +5,7 @@ public enum ButtonInput {
     MEDIUM,
     HEAVY
 }
+
 public class InputMapper : MonoBehaviour
 {
 
@@ -13,40 +14,61 @@ public class InputMapper : MonoBehaviour
 
     public int playerID;
 
-    public ButtonInput? GetPressedButton() {
+    // For AI mode
+    // Added by Cyler on 12/10/25
+    private ButtonInput? forcedButton = null;
+    public bool isAI = false;
 
-        // Added by Cyler on 12/1/25
-        if (playerID == 1)
+    public ButtonInput? GetPressedButton()
+    {
+        // Basically the AI is using the same input as a player, just virtual
+        // So the AI is forcing an input and then it registers and executes, then the input is cleared and another is done
+        if(isAI && forcedButton != null)
         {
-            // Keyboard
-            if (Keyboard.current.uKey.wasPressedThisFrame) return ButtonInput.LIGHT;
-            if (Keyboard.current.iKey.wasPressedThisFrame) return ButtonInput.MEDIUM;
-            if (Keyboard.current.oKey.wasPressedThisFrame) return ButtonInput.HEAVY;
+            ButtonInput? b = forcedButton;
+            forcedButton = null;
+            return b;
+        }
 
-            // Gamepad
-            if (Gamepad.current != null) {
-                if (Gamepad.current.buttonWest.wasPressedThisFrame) return ButtonInput.LIGHT;
-                if (Gamepad.current.buttonNorth.wasPressedThisFrame) return ButtonInput.MEDIUM;
-                if (Gamepad.current.buttonEast.wasPressedThisFrame) return ButtonInput.HEAVY;
-            }
-        // Added by Cyler on 12/1/25
-        } else if (playerID == 2)
+        // Proceed with both characters controlable if not in AI mode
+        if (!isAI)
         {
-            // Keyboard
-            if (Keyboard.current.jKey.wasPressedThisFrame) return ButtonInput.LIGHT;
-            if (Keyboard.current.kKey.wasPressedThisFrame) return ButtonInput.MEDIUM;
-            if (Keyboard.current.lKey.wasPressedThisFrame) return ButtonInput.HEAVY;
+            // Added by Cyler on 12/1/25
+            if (playerID == 1)
+            {
+                // Keyboard
+                if (Keyboard.current.uKey.wasPressedThisFrame) return ButtonInput.LIGHT;
+                if (Keyboard.current.iKey.wasPressedThisFrame) return ButtonInput.MEDIUM;
+                if (Keyboard.current.oKey.wasPressedThisFrame) return ButtonInput.HEAVY;
 
-            // Gamepad
-            if (Gamepad.current != null) {
-                if (Gamepad.current.buttonWest.wasPressedThisFrame) return ButtonInput.LIGHT;
-                if (Gamepad.current.buttonNorth.wasPressedThisFrame) return ButtonInput.MEDIUM;
-                if (Gamepad.current.buttonEast.wasPressedThisFrame) return ButtonInput.HEAVY;
+                // Gamepad
+                if (Gamepad.current != null) {
+                    if (Gamepad.current.buttonWest.wasPressedThisFrame) return ButtonInput.LIGHT;
+                    if (Gamepad.current.buttonNorth.wasPressedThisFrame) return ButtonInput.MEDIUM;
+                    if (Gamepad.current.buttonEast.wasPressedThisFrame) return ButtonInput.HEAVY;
+                }
+            // Added by Cyler on 12/1/25
+            } else if (playerID == 2)
+            {
+                // Keyboard
+                if (Keyboard.current.jKey.wasPressedThisFrame) return ButtonInput.LIGHT;
+                if (Keyboard.current.kKey.wasPressedThisFrame) return ButtonInput.MEDIUM;
+                if (Keyboard.current.lKey.wasPressedThisFrame) return ButtonInput.HEAVY;
+
+                // Gamepad
+                if (Gamepad.current != null) {
+                    if (Gamepad.current.buttonWest.wasPressedThisFrame) return ButtonInput.LIGHT;
+                    if (Gamepad.current.buttonNorth.wasPressedThisFrame) return ButtonInput.MEDIUM;
+                    if (Gamepad.current.buttonEast.wasPressedThisFrame) return ButtonInput.HEAVY;
+                }
             }
         }
         
         return null;
     }
 
-
+    public void ForcedButtonPress(ButtonInput button)
+    {
+        forcedButton = button;
+    }
 }
