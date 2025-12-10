@@ -14,3 +14,96 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Pancake
   animationSet: {fileID: 11400000, guid: 5af95b5a6de637748a0e4cfbe16cebed, type: 2}
+  health: 500
+  healthbar: {fileID: 0}
+  attacks:
+  - attackName: StandLight
+    hitboxes:
+    - size: {x: 2.33, y: 0.98}
+      offset: {x: 1.28, y: 1.05}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: StandMedium
+    hitboxes:
+    - size: {x: 9.11, y: 6.01}
+      offset: {x: 5.92, y: 3.17}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: StandHeavy
+    hitboxes:
+    - size: {x: 5, y: 5}
+      offset: {x: 5.92, y: 2.17}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: CrouchLight
+    hitboxes:
+    - size: {x: 1, y: 1}
+      offset: {x: 1, y: 0.5}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: CrouchMedium
+    hitboxes:
+    - size: {x: 3, y: 3}
+      offset: {x: 2.27, y: 1.41}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: CrouchHeavy
+    hitboxes:
+    - size: {x: 20, y: 0.5}
+      offset: {x: 2.09, y: 0.75}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: JumpLight
+    hitboxes:
+    - size: {x: 5, y: 11}
+      offset: {x: 2.52, y: -2.35}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: JumpMedium
+    hitboxes:
+    - size: {x: 7.9, y: 1.84}
+      offset: {x: 8.57, y: -0.43}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []
+  - attackName: JumpHeavy
+    hitboxes:
+    - size: {x: 6.06, y: 5.61}
+      offset: {x: 7.9, y: 0.57}
+      activeFrameStart: 0
+      activeFrameEnd: 0
+      damage: 0
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    hurtboxes: []

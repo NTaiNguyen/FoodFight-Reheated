@@ -26,6 +26,7 @@ public class GameData : MonoBehaviour
     
     public static GameData Instance {get; private set;}
 
+
     // To track AI mode
     public bool isP2AI = false;
     
