@@ -3,7 +3,7 @@ using UnityEngine.Rendering;
 
 public class MapManager : MonoBehaviour
 {
-    public static MapManager Instance;  // <-- Singleton instance
+    public static MapManager Instance;
 
     public GameObject[] maps;
     
@@ -48,6 +48,7 @@ public class MapManager : MonoBehaviour
         chosenMap.SetActive(true);
 
         Debug.Log("Activated map at index: " + index);
+        Debug.Log("Maps found: " + index);
 
         MapInfo info = chosenMap.GetComponent<MapInfo>();
 

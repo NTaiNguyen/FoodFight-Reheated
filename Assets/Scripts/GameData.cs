@@ -22,6 +22,22 @@ public class GameData : MonoBehaviour
     public static int selectedMapIndex;
 
     // Change this later when more maps are added
-    public static int totalMaps = 2;
+    public static int totalMaps = 6;
+    
+    public static GameData Instance {get; private set;}
 
+
+    // To track AI mode
+    public bool isP2AI = false;
+    
+    void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
 }
