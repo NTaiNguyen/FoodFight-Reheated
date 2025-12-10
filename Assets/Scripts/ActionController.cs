@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class ActionController : MonoBehaviour {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -8,6 +9,14 @@ public class ActionController : MonoBehaviour {
     public bool isAttacking;
     private MoveState currentState;
     public int playerID;
+    public CharacterData _charData;
+    private AttackData currentAttack;
+    private int currentFrame;
+    private List<BoxCollider2D> activeHitboxes = new List<BoxCollider2D>();
+
+
+    [SerializeField] private BoxCollider2D hitboxPrefab;
+    [SerializeField] private BoxCollider2D hurtboxPrefab;
 
     void Start()
     {
@@ -20,6 +29,11 @@ public class ActionController : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        if (isAttacking) {
+            currentFrame++;
+
+            HandleHitboxSpawning();
+        }
         UpdateState();
         //Debug.Log($"Current Action: {sAct}");
         //Debug.Log("isAttacking = " + isAttacking);
@@ -75,6 +89,43 @@ public class ActionController : MonoBehaviour {
         }
     }
 
+    void SpawnHitbox(HitboxData hbData) {
+        var prefab = currentAttack.hitboxPrefab;
+
+        BoxCollider2D hitbox = Instantiate(prefab, transform);
+
+        HitboxController controller = hitbox.GetComponent<HitboxController>();
+        controller.owner = this;
+        controller.data = hbData;
+
+        activeHitboxes.Add(hitbox);
+    }
+
+
+    void HandleHitboxSpawning() {
+        if (currentAttack == null) return;
+
+        foreach (var hb in currentAttack.hitboxes) {
+            if (currentFrame == hb.activeFrameStart) {
+                SpawnHitbox(hb);
+            }
+            if (currentFrame == hb.activeFrameEnd) {
+                EndHitbox(hb);
+            }
+        }
+    }
+
+    void EndHitbox(HitboxData hbData) {
+        for (int i = activeHitboxes.Count - 1; i >= 0; i--) {
+            HitboxController c = activeHitboxes[i].GetComponent<HitboxController>();
+
+            if (c.data == hbData) {
+                Destroy(activeHitboxes[i].gameObject);
+                activeHitboxes.RemoveAt(i);
+            }
+        }
+    }
+ 
     public void Reset() {
         sAct = ActionState.NONE;
         isAttacking = false;
@@ -82,5 +133,10 @@ public class ActionController : MonoBehaviour {
 
     public void StartAttack() {
         isAttacking = true;
+
+        // find the correct attack data
+        currentAttack = _charData.attacks[(int)sAct];
+
+        currentFrame = 0;
     }
 }

@@ -9,9 +9,11 @@ public class GizmoArtist : MonoBehaviour
 
        
         foreach (var attack in characterData.attacks) {
-            Gizmos.color = attack.gizmoColor;
-            Vector3 center = transform.position + (Vector3)attack.hitboxOffset;
-            Gizmos.DrawWireCube(center, attack.hitboxSize);
+            foreach (var hitbox in attack.hitboxes) {
+                Gizmos.color = hitbox.gizmoColor;
+                Vector3 center = transform.position + (Vector3)hitbox.offset;
+                Gizmos.DrawWireCube(center, hitbox.size);
+            }
         }
     }
 }

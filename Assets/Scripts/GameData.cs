@@ -24,5 +24,4 @@ public class GameData : MonoBehaviour
     // Change this later when more maps are added
     public static int totalMaps = 2;
 
-
 }

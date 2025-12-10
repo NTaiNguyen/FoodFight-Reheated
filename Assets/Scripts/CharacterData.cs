@@ -1,16 +1,32 @@
 using UnityEngine;
 
 [System.Serializable]
-public class AttackData {
-    public string attackName;
-    public Vector2 hitboxSize;
-    public Vector2 hitboxOffset;
-    public int damage;
+public class HitboxData {
+    public Vector2 size;
+    public Vector2 offset;
     public int activeFrameStart;
     public int activeFrameEnd;
-    public Color gizmoColor;
-
+    public int damage;
+    public float hitStun;
+    public Color gizmoColor = new Color(1f, 0f, 0f, 0f);
 }
+
+[System.Serializable]
+public class HurtboxData {
+    public Vector2 size;
+    public Vector2 offset;
+    public int invincibilityFrames;
+    public Color gizmoColor = new Color(0f, 0f, 1f, 0f);
+}
+[System.Serializable]
+public class AttackData {
+    public string attackName;
+    public BoxCollider2D hitboxPrefab;
+    public BoxCollider2D hurtboxPrefab;
+    public HitboxData[] hitboxes;
+    public HurtboxData[] hurtboxes;
+}
+
 [CreateAssetMenu(fileName = "CharacterData", menuName = "FightingGame/CharacterData")]
 public class CharacterData : ScriptableObject
 {
