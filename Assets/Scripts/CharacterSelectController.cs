@@ -22,9 +22,9 @@ public class CharacterSelectController : MonoBehaviour
 
     private GameData gameData;
 
-    public int totalMaps = 6;
+    // public int totalMaps = 6;
 
-    // NEW
+    // New for AI
     private bool isP1vsAI = false;
     private int mode;
 
@@ -118,7 +118,7 @@ public class CharacterSelectController : MonoBehaviour
             GameData.selectedP1 = dataP1;
             GameData.selectedP2 = dataP2;
 
-            GameData.totalMaps = totalMaps;
+            // GameData.totalMaps = totalMaps;
 
             // choose from available maps
             GameData.selectedMapIndex = Random.Range(0, GameData.totalMaps);

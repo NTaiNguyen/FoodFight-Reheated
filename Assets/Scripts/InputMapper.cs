@@ -51,9 +51,9 @@ public class InputMapper : MonoBehaviour
             } else if (playerID == 2)
             {
                 // Keyboard
-                if (Keyboard.current.jKey.wasPressedThisFrame) return ButtonInput.LIGHT;
-                if (Keyboard.current.kKey.wasPressedThisFrame) return ButtonInput.MEDIUM;
-                if (Keyboard.current.lKey.wasPressedThisFrame) return ButtonInput.HEAVY;
+                if (Keyboard.current.numpad1Key.wasPressedThisFrame) return ButtonInput.LIGHT;
+                if (Keyboard.current.numpad2Key.wasPressedThisFrame) return ButtonInput.MEDIUM;
+                if (Keyboard.current.numpad3Key.wasPressedThisFrame) return ButtonInput.HEAVY;
 
                 // Gamepad
                 if (Gamepad.current != null) {
