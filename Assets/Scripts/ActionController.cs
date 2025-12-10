@@ -130,13 +130,13 @@ public class ActionController : MonoBehaviour {
         sAct = ActionState.NONE;
         isAttacking = false;
     }
-
+    
     public void StartAttack() {
         isAttacking = true;
 
         // find the correct attack data
-        currentAttack = _charData.attacks[(int)sAct];
+        // currentAttack = _charData.attacks[(int)sAct];
 
-        currentFrame = 0;
+        // currentFrame = 0;
     }
 }

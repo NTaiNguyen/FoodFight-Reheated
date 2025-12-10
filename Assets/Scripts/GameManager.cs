@@ -59,6 +59,7 @@ using UnityEngine;
         if (anim1 != null) anim1.animSet = GameData.selectedP1.animationSet;
         p1.GetComponent<MovementScript>().playerID = 1;
         p1.GetComponent<ActionController>().playerID = 1;
+        p1.AddComponent<FaceOpponent>();
 
         // Instantiate P2
         GameObject p2 = Instantiate(prefab, player2Spawn.position, player2Spawn.rotation);
@@ -68,6 +69,7 @@ using UnityEngine;
         if (anim2 != null) anim2.animSet = GameData.selectedP2.animationSet;
         p2.GetComponent<MovementScript>().playerID = 2;
         p2.GetComponent<ActionController>().playerID = 2;
+        p2.AddComponent<FaceOpponent>();
 
         // Ensure InputMapper exists on both
         InputMapper mapperP1 = p1.GetComponent<InputMapper>();
