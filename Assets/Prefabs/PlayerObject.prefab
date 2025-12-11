@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1462604768668846640}
   - component: {fileID: 2581533062845305273}
   - component: {fileID: 744333680565915132}
+  - component: {fileID: -6918363037287731460}
   m_Layer: 0
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -53,7 +54,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseController: {fileID: 9100000, guid: bf24c901cdf5dce45b4dcb24f2d4bb3f, type: 2}
-  data: {fileID: 0}
   animSet: {fileID: 11400000, guid: 5af95b5a6de637748a0e4cfbe16cebed, type: 2}
 --- !u!50 &7920614958934164859
 Rigidbody2D:
@@ -116,7 +116,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: -0.054330125, y: 0.40395567}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -126,7 +126,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.41710672, y: 0.80791134}
   m_EdgeRadius: 0
 --- !u!114 &6121762709808892024
 MonoBehaviour:
@@ -143,6 +143,8 @@ MonoBehaviour:
   box: {fileID: 735493357773870618}
   moveSpeed: 3.8
   jumpHeight: 9.5
+  horizontalInput: 0
+  verticalInput: 0
   playerID: 1
 --- !u!114 &2884275307848460160
 MonoBehaviour:
@@ -156,8 +158,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cea4e09223a19a44f82e12a5ac1c7719, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
   playerID: 0
+  _charData: {fileID: 0}
+  spriteRoot: {fileID: 0}
+  opponent: {fileID: 0}
+  hitboxPrefab: {fileID: 3989056495491855844, guid: 58df8663388e5b143bf849ce8205d2b6, type: 3}
+  hurtboxPrefab: {fileID: 0}
+  isAttacking: 0
 --- !u!114 &1462604768668846640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerID: 0
+  isAI: 0
 --- !u!114 &744333680565915132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,12 +222,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterData: {fileID: 11400000, guid: c7d8ee07da130684498acd8f626907cf, type: 2}
-  gizmoColor: {r: 1, g: 0, b: 0, a: 0.5}
-  m_Script: {fileID: 11500000, guid: d1a7649ad6e1ed94bbb678340c616e98, type: 3}
+--- !u!114 &-6918363037287731460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780497765059133432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de870faae012584db88bd78024f0517, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  opponent: {fileID: 0}
-  sprite: {fileID: 0}
+  owner: {fileID: 0}
+  ownerID: 0
 --- !u!1 &6327993800037470485
 GameObject:
   m_ObjectHideFlags: 0

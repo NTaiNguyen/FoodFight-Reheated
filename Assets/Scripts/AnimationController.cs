@@ -3,7 +3,6 @@ using System.Collections.Generic;
 public class AnimationController : MonoBehaviour
 {
     [SerializeField] private RuntimeAnimatorController baseController;
-    [SerializeField] private CharacterData data;
     private Animator _animator;
     private MovementScript _movement;
     private ActionController _action;

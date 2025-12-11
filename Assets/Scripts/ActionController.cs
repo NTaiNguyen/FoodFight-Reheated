@@ -1,142 +1,191 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class ActionController : MonoBehaviour {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private InputMapper mapper;
-    private MovementScript _movement;
-    public ActionState sAct { get; private set; }
-    public bool isAttacking;
-    private MoveState currentState;
+public class ActionController : MonoBehaviour
+{
+    [Header("Player Settings")]
     public int playerID;
     public CharacterData _charData;
-    private AttackData currentAttack;
-    private int currentFrame;
-    private List<BoxCollider2D> activeHitboxes = new List<BoxCollider2D>();
 
-
+    [Header("References")]
+    public Transform spriteRoot;             
+    public Transform opponent;                
     [SerializeField] private BoxCollider2D hitboxPrefab;
     [SerializeField] private BoxCollider2D hurtboxPrefab;
+
+    [Header("Health")]
+    public int currentHealth { get; private set; }
+
+    // Attack state
+    public ActionState sAct { get; private set; }
+    private AttackData currentAttack;
+    private int currentFrame;
+    public bool isAttacking;
+    private List<BoxCollider2D> activeHitboxes = new List<BoxCollider2D>();
+
+    // Movement/Input
+    private InputMapper mapper;
+    private MovementScript _movement;
 
     void Start()
     {
         mapper = GetComponent<InputMapper>();
-        // Added by Cyler on 12/1/25
         mapper.playerID = playerID;
         _movement = GetComponent<MovementScript>();
+
+        // Find sprite root if not assigned
+        if (spriteRoot == null)
+            spriteRoot = GetComponentInChildren<SpriteRenderer>()?.transform;
+        if (spriteRoot == null)
+            spriteRoot = transform.Find("Sprite");
+
+        // Assign health
+        currentHealth = _charData.health;
+
+        // Assign hurtbox owner
+        HurtboxController hb = GetComponentInChildren<HurtboxController>();
+        if (hb != null)
+        {
+            hb.owner = this;
+            Debug.Log($"[ACTION] {gameObject.name} connected pushbox hurtbox.");
+        }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (isAttacking) {
-            currentFrame++;
+        // Flip sprite towards opponent
+        UpdateFacing();
 
+        if (isAttacking)
+        {
+            currentFrame++;
             HandleHitboxSpawning();
         }
-        UpdateState();
-        //Debug.Log($"Current Action: {sAct}");
-        //Debug.Log("isAttacking = " + isAttacking);
 
+        UpdateState();
     }
 
+    void UpdateFacing()
+    {
+        if (opponent == null || spriteRoot == null) return;
 
-    void UpdateState() {
-        // if already attacking exit
+        bool facingRight = opponent.position.x > transform.position.x;
+        spriteRoot.localScale = new Vector3(facingRight ? 1f : -1f, spriteRoot.localScale.y, spriteRoot.localScale.z);
+    }
+
+    void UpdateState()
+    {
         if (isAttacking) return;
         var button = mapper.GetPressedButton();
+        if (!button.HasValue) return;
 
-        if (button.HasValue) {
-            //Combines the jump and fall state into arial so animations dont cancel when switching
-            if (_movement.sMove == MoveState.JUMP || _movement.sMove == MoveState.FALL) {
-                currentState = MoveState.ARIAL;
-            }
-            else {currentState = _movement.sMove;}
+        // Determine movement state
+        MoveState currentState = (_movement.sMove == MoveState.JUMP || _movement.sMove == MoveState.FALL)
+            ? MoveState.ARIAL : _movement.sMove;
 
+        // Determine action
+        switch ((currentState, button))
+        {
+            case (MoveState.STAND, ButtonInput.LIGHT):
+            case (MoveState.WALK, ButtonInput.LIGHT):
+                sAct = ActionState.SL; break;
+            case (MoveState.STAND, ButtonInput.MEDIUM):
+            case (MoveState.WALK, ButtonInput.MEDIUM):
+                sAct = ActionState.SM; break;
+            case (MoveState.STAND, ButtonInput.HEAVY):
+            case (MoveState.WALK, ButtonInput.HEAVY):
+                sAct = ActionState.SH; break;
+            case (MoveState.CROUCH, ButtonInput.LIGHT):
+                sAct = ActionState.CL; break;
+            case (MoveState.CROUCH, ButtonInput.MEDIUM):
+                sAct = ActionState.CM; break;
+            case (MoveState.CROUCH, ButtonInput.HEAVY):
+                sAct = ActionState.CH; break;
+            case (MoveState.ARIAL, ButtonInput.LIGHT):
+                sAct = ActionState.JL; break;
+            case (MoveState.ARIAL, ButtonInput.MEDIUM):
+                sAct = ActionState.JM; break;
+            case (MoveState.ARIAL, ButtonInput.HEAVY):
+                sAct = ActionState.JH; break;
+        }
 
-            switch ((currentState, button)) {
-                case (MoveState.STAND, ButtonInput.LIGHT):
-                case (MoveState.WALK, ButtonInput.LIGHT):
-                    sAct = ActionState.SL;
-                    break;
-                case (MoveState.STAND, ButtonInput.MEDIUM):
-                case (MoveState.WALK, ButtonInput.MEDIUM):
-                    sAct = ActionState.SM;
-                    break;
-                case (MoveState.STAND, ButtonInput.HEAVY):
-                    sAct = ActionState.SH;
-                    break;
-                case (MoveState.CROUCH, ButtonInput.LIGHT):
-                    sAct = ActionState.CL;
-                    break;
-                case (MoveState.CROUCH, ButtonInput.MEDIUM):
-                    sAct = ActionState.CM;
-                    break;
-                case (MoveState.CROUCH, ButtonInput.HEAVY):
-                    sAct = ActionState.CH;
-                    break;
-                case (MoveState.ARIAL, ButtonInput.LIGHT):
-                    sAct = ActionState.JL;
-                    break;
-                case (MoveState.ARIAL, ButtonInput.MEDIUM):
-                    sAct = ActionState.JM;
-                    break;
-                case (MoveState.ARIAL, ButtonInput.HEAVY):
-                    sAct = ActionState.JH;
-                    break;
-                }
+        // Assign current attack safely
+        int attackIndex = (int)sAct;
+        if (_charData.attacks != null && attackIndex >= 0 && attackIndex < _charData.attacks.Length)
+            currentAttack = _charData.attacks[attackIndex - 1];
+        else
+            currentAttack = null;
 
+        if (sAct != ActionState.NONE)
+            StartAttack();
+    }
+
+    public void StartAttack()
+    {
+        isAttacking = true;
+        currentFrame = 0;
+        // if (currentAttack != null)
+        //     Debug.Log($"[ATTACK START] {gameObject.name} started {currentAttack.attackName}");
+    }
+
+    void HandleHitboxSpawning()
+    {
+        if (currentAttack == null) return;
+
+        foreach (var hb in currentAttack.hitboxes)
+        {
+            if (currentFrame == hb.activeFrameStart)
+                SpawnHitbox(hb);
+            if (currentFrame == hb.activeFrameEnd)
+                EndHitbox(hb);
         }
     }
 
-    void SpawnHitbox(HitboxData hbData) {
-        var prefab = currentAttack.hitboxPrefab;
+    void SpawnHitbox(HitboxData hbData)
+    {
+        BoxCollider2D hitbox = Instantiate(hitboxPrefab, transform);
 
-        BoxCollider2D hitbox = Instantiate(prefab, transform);
+        Vector3 offset = hbData.offset;
+        Vector2 size = hbData.size;
+
+        // Flip X offset if facing left
+        float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
+        offset.x *= facing;
+
+        hitbox.offset = new Vector2(offset.x, offset.y);
+        hitbox.size = size;
 
         HitboxController controller = hitbox.GetComponent<HitboxController>();
         controller.owner = this;
         controller.data = hbData;
 
         activeHitboxes.Add(hitbox);
+
+        // Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
     }
 
-
-    void HandleHitboxSpawning() {
-        if (currentAttack == null) return;
-
-        foreach (var hb in currentAttack.hitboxes) {
-            if (currentFrame == hb.activeFrameStart) {
-                SpawnHitbox(hb);
-            }
-            if (currentFrame == hb.activeFrameEnd) {
-                EndHitbox(hb);
-            }
-        }
-    }
-
-    void EndHitbox(HitboxData hbData) {
-        for (int i = activeHitboxes.Count - 1; i >= 0; i--) {
+    void EndHitbox(HitboxData hbData)
+    {
+        for (int i = activeHitboxes.Count - 1; i >= 0; i--)
+        {
             HitboxController c = activeHitboxes[i].GetComponent<HitboxController>();
-
-            if (c.data == hbData) {
+            if (c.data == hbData)
+            {
                 Destroy(activeHitboxes[i].gameObject);
                 activeHitboxes.RemoveAt(i);
             }
         }
     }
- 
-    public void Reset() {
+
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        Debug.Log($"{name} took {damage} damage; currentHealth: {currentHealth}");
+    }
+
+    public void Reset()
+    {
         sAct = ActionState.NONE;
         isAttacking = false;
-    }
-    
-    public void StartAttack() {
-        isAttacking = true;
-
-        // find the correct attack data
-        // currentAttack = _charData.attacks[(int)sAct];
-
-        // currentFrame = 0;
     }
 }

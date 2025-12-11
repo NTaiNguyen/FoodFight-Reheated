@@ -14,3 +14,162 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ice Cream
   animationSet: {fileID: 11400000, guid: 5454bb720871ad642bb7767a6f0cb44d, type: 2}
+  health: 80
+  healthbar: {fileID: 0}
+  attacks:
+  - attackName: StandLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 0.5, y: 0.5}
+      offset: {x: 0.7, y: 0.8}
+      activeFrameStart: 4
+      activeFrameEnd: 7
+      damage: 3
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 0.5, y: 0.5}
+      offset: {x: 0.7, y: 0.8}
+      activeFrameStart: 10
+      activeFrameEnd: 13
+      damage: 3
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 0.5, y: 0.5}
+      offset: {x: 0.7, y: 0.8}
+      activeFrameStart: 20
+      activeFrameEnd: 23
+      damage: 4
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: StandMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 0.5, y: 0.3}
+      offset: {x: 0.8, y: 0.65}
+      activeFrameStart: 10
+      activeFrameEnd: 16
+      damage: 12
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: StandHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 2, y: 0.4}
+      offset: {x: 1.5, y: 0.6}
+      activeFrameStart: 25
+      activeFrameEnd: 29
+      damage: 5
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 2, y: 0.4}
+      offset: {x: 1.5, y: 0.6}
+      activeFrameStart: 31
+      activeFrameEnd: 34
+      damage: 5
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 2, y: 0.4}
+      offset: {x: 1.5, y: 0.6}
+      activeFrameStart: 36
+      activeFrameEnd: 40
+      damage: 5
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 2, y: 0.4}
+      offset: {x: 1.5, y: 0.6}
+      activeFrameStart: 42
+      activeFrameEnd: 46
+      damage: 5
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 2, y: 0.4}
+      offset: {x: 1.5, y: 0.6}
+      activeFrameStart: 47
+      activeFrameEnd: 50
+      damage: 5
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 0.5, y: 1}
+      offset: {x: 0.3, y: 0.9}
+      activeFrameStart: 2
+      activeFrameEnd: 4
+      damage: 6
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1.3, y: 0.3}
+      offset: {x: 0.5, y: 0.3}
+      activeFrameStart: 18
+      activeFrameEnd: 22
+      damage: 13
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 2, y: 1}
+      offset: {x: 1, y: 0.5}
+      activeFrameStart: 16
+      activeFrameEnd: 26
+      damage: 30
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1, y: 1}
+      offset: {x: 0.5, y: -0.5}
+      activeFrameStart: 8
+      activeFrameEnd: 10
+      damage: 3
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 1, y: 1}
+      offset: {x: 0.5, y: -0.5}
+      activeFrameStart: 11
+      activeFrameEnd: 12
+      damage: 3
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+    - size: {x: 1, y: 1}
+      offset: {x: 0.5, y: -0.5}
+      activeFrameStart: 13
+      activeFrameEnd: 15
+      damage: 3
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1.8, y: 2}
+      offset: {x: 0, y: 0.8}
+      activeFrameStart: 16
+      activeFrameEnd: 20
+      damage: 10
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 2.5, y: 1}
+      offset: {x: 1, y: 0.6}
+      activeFrameStart: 16
+      activeFrameEnd: 25
+      damage: 28
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  hurtbox: {fileID: 147372760785409662, guid: 754966937702fe14c8878177c7699eeb, type: 3}

@@ -16,10 +16,19 @@ public class HitboxController : MonoBehaviour {
             box.offset = data.offset;
         }
     }
-    void OnTriggerEnter2D(Collider2D col) {
+    void OnTriggerEnter2D(Collider2D other) {
         //stops player from hitting themself
-        if (col.gameObject == owner.gameObject) return;
+        if (other.gameObject == owner.gameObject) return;
         
-        Debug.Log($"{owner.name} hit {col.name} for {data.damage}!");
+        Debug.Log($"{owner.name} hit {other.name} for {data.damage}!");
+        HurtboxController hb = other.GetComponent<HurtboxController>();
+        if (hb != null)
+        {
+            Debug.Log($"[HIT] Hitbox from {owner.gameObject.name} hit {hb.owner.gameObject.name}");
+
+            // Apply damage later
+            hb.owner.TakeDamage(data.damage);
+            
+        }
     }
 }

@@ -24,6 +24,4 @@ public class AnimationEvents : MonoBehaviour
         _action.Reset();
         
     }
-
-
 }

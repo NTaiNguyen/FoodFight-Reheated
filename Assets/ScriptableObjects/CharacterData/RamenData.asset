@@ -14,96 +14,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Ramen
   animationSet: {fileID: 11400000, guid: 9842da1071f43ae4383770688a204031, type: 2}
-  health: 1000
+  health: 90
   healthbar: {fileID: 0}
   attacks:
   - attackName: StandLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.32, y: 0.72}
       offset: {x: 0.85, y: 0.8}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 5
+      activeFrameEnd: 8
+      damage: 8
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: StandMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.22, y: 1}
       offset: {x: 1.08, y: 1.02}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 7
+      activeFrameEnd: 13
+      damage: 12
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: StandHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.96, y: 1.99}
       offset: {x: 1.41, y: 1.03}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 20
+      activeFrameEnd: 28
+      damage: 33
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: CrouchLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.57, y: 0.61}
       offset: {x: 1.36, y: 0.32}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 9
+      activeFrameEnd: 12
+      damage: 15
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: CrouchMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 0.63, y: 1.47}
       offset: {x: 0.91, y: 0.84}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 11
+      activeFrameEnd: 17
+      damage: 19
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: CrouchHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 2.45, y: 0.56}
       offset: {x: 1.62, y: 0.34}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 22
+      activeFrameEnd: 33
+      damage: 35
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: JumpLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.51, y: 0.53}
       offset: {x: 0.83, y: 0.85}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 8
+      activeFrameEnd: 10
+      damage: 10
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: JumpMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 1.86, y: 0.66}
       offset: {x: 0.74, y: 0.8}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 7
+      activeFrameEnd: 13
+      damage: 12
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
   - attackName: JumpHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 0.72, y: 2.19}
       offset: {x: 0.51, y: 0.1}
-      activeFrameStart: 0
-      activeFrameEnd: 0
-      damage: 0
+      activeFrameStart: 16
+      activeFrameEnd: 25
+      damage: 38
       hitStun: 0
       gizmoColor: {r: 1, g: 0, b: 0, a: 0}
-    hurtboxes: []
+  hurtbox: {fileID: 147372760785409662, guid: 754966937702fe14c8878177c7699eeb, type: 3}

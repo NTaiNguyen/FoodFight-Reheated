@@ -14,3 +14,106 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Pizza
   animationSet: {fileID: 11400000, guid: 1d46178881821184c84387b7681737e3, type: 2}
+  health: 100
+  healthbar: {fileID: 0}
+  attacks:
+  - attackName: StandingLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1, y: 1}
+      offset: {x: 0.5, y: 1}
+      activeFrameStart: 4
+      activeFrameEnd: 6
+      damage: 6
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: StandingMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 2, y: 0.5}
+      offset: {x: 1, y: 1}
+      activeFrameStart: 5
+      activeFrameEnd: 7
+      damage: 12
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: StandingHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 0.9, y: 2}
+      offset: {x: 1, y: 1}
+      activeFrameStart: 10
+      activeFrameEnd: 16
+      damage: 20
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchingLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 0.5, y: 1}
+      offset: {x: 1, y: 1}
+      activeFrameStart: 3
+      activeFrameEnd: 4
+      damage: 4
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchingMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1, y: 0.5}
+      offset: {x: 1, y: 0}
+      activeFrameStart: 4
+      activeFrameEnd: 7
+      damage: 8
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: CrouchingHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 3, y: 3}
+      offset: {x: 1, y: 1}
+      activeFrameStart: 29
+      activeFrameEnd: 41
+      damage: 8
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpingLight
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1, y: 1}
+      offset: {x: 1.7, y: 0.6}
+      activeFrameStart: 6
+      activeFrameEnd: 8
+      damage: 9
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpingMedium
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 1, y: 1}
+      offset: {x: 2, y: 0.6}
+      activeFrameStart: 8
+      activeFrameEnd: 14
+      damage: 12
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  - attackName: JumpingHeavy
+    hitboxPrefab: {fileID: 0}
+    hurtboxPrefab: {fileID: 0}
+    hitboxes:
+    - size: {x: 2, y: 3}
+      offset: {x: 2, y: 1}
+      activeFrameStart: 18
+      activeFrameEnd: 25
+      damage: 20
+      hitStun: 0
+      gizmoColor: {r: 1, g: 0, b: 0, a: 1}
+  hurtbox: {fileID: 147372760785409662, guid: 754966937702fe14c8878177c7699eeb, type: 3}

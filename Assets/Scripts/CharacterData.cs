@@ -24,7 +24,7 @@ public class AttackData {
     public BoxCollider2D hitboxPrefab;
     public BoxCollider2D hurtboxPrefab;
     public HitboxData[] hitboxes;
-    public HurtboxData[] hurtboxes;
+    // public HurtboxData[] hurtboxes;
 }
 
 [CreateAssetMenu(fileName = "CharacterData", menuName = "FightingGame/CharacterData")]
@@ -35,5 +35,6 @@ public class CharacterData : ScriptableObject
     public int health;
     public GameObject healthbar; // make game object with sprite renderer and progress animation for health as it lowers
     public AttackData[] attacks;
+    public BoxCollider2D hurtbox;
 
 }
