@@ -376,6 +376,7 @@ GameObject:
   - component: {fileID: 207288337}
   - component: {fileID: 207288336}
   - component: {fileID: 207288338}
+  - component: {fileID: 207288339}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -508,6 +509,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuMusicTrack: {fileID: 8300000, guid: 623f74c2b65b313419feddcdfb2a88c5, type: 3}
+--- !u!114 &207288339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207288335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 106220dd5b5a6604498e0bf721fd3f24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &215733057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7878350319992209165, guid: 321b3c29b77d99d40a37429c94d603de, type: 3}
@@ -3329,7 +3342,6 @@ MonoBehaviour:
   characterPortraits: []
   rows: 2
   cols: 3
-  totalMaps: 2
 --- !u!114 &1908244969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3367,6 +3379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bank: {fileID: 11400000, guid: f8860bb7cd0b2414b9154d598e07c9bc, type: 2}
+  isP2AI: 0
 --- !u!1 &1910406638
 GameObject:
   m_ObjectHideFlags: 0

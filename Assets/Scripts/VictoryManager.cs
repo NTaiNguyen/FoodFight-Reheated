@@ -1,85 +1,101 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class VictoryManager : MonoBehaviour
 {
-    [Header("Players")]
     public ActionController player1;
     public ActionController player2;
 
-    [Header("UI & Audio")]
     public GameObject player1VictoryImage;
     public GameObject player2VictoryImage;
-    public AudioSource victoryMusic;     
-    [Header("Settings")]
+    public AudioSource victoryMusic;
     public float returnToMenuDelay = 10f;
 
-    private bool gameOver = false;
+    private bool gameOver;
 
-    void Start()
+   void Start()
     {
-        // Hide both victory images initially
-        if (player1VictoryImage != null) player1VictoryImage.SetActive(false);
-        if (player2VictoryImage != null) player2VictoryImage.SetActive(false);
+        gameOver = false;
 
-        // Auto-find players by tag if not assigned
-        if (player1 == null)
-            player1 = GameObject.FindGameObjectWithTag("Player1")?.GetComponent<ActionController>();
-        if (player2 == null)
-            player2 = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<ActionController>();
+        // Hide both victory screens to start
+        if (player1VictoryImage) player1VictoryImage.SetActive(false);
+        if (player2VictoryImage) player2VictoryImage.SetActive(false);
 
-        if (player1 == null || player2 == null)
-            Debug.LogWarning("[VictoryManager] Players not assigned or tagged correctly!");
+        // Auto-assign players by tag if not set
+        if (!player1) player1 = GameObject.FindGameObjectWithTag("Player1")?.GetComponent<ActionController>();
+        if (!player2) player2 = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<ActionController>();
     }
 
     void Update()
     {
+        // Auto-assign players if they spawn after Start
+        if (!player1)
+            player1 = GameObject.FindGameObjectWithTag("Player1")?.GetComponent<ActionController>();
+        if (!player2)
+            player2 = GameObject.FindGameObjectWithTag("Player2")?.GetComponent<ActionController>();
+
+        if (player1)
+            Debug.Log("Found Player1: " + player1.name);
+
+        if (player2)
+            Debug.Log("Found Player2: " + player2.name);
+
+        if (!player1 || !player2)
+            return; 
+
         if (gameOver) return;
 
-        if (player1 == null || player2 == null) return;
-
+        // Health check
         if (player1.currentHealth <= 0)
-        {
-            EndGame(winner: 2);
-        }
+            EndGame(2);
         else if (player2.currentHealth <= 0)
-        {
-            EndGame(winner: 1);
-        }
+            EndGame(1);
     }
 
-    // Finding players after they spawn
-    public void AssignPlayers(GameObject p1, GameObject p2)
-    {
-        player1 = p1.GetComponent<ActionController>();
-        player2 = p2.GetComponent<ActionController>();
-        Debug.Log("[VictoryManager] Players dynamically assigned.");
-    }
-
-    private void EndGame(int winner)
+    void EndGame(int winner)
     {
         gameOver = true;
 
-        Debug.Log($"Player {winner} wins!");
+        // // Slow mo finish
+        // Time.timeScale = 0.2f;
+        // Time.fixedDeltaTime = 0.02f * Time.timeScale;
 
-        // Show correct victory image
-        if (winner == 1 && player1VictoryImage != null)
-            player1VictoryImage.SetActive(true);
-        else if (winner == 2 && player2VictoryImage != null)
-            player2VictoryImage.SetActive(true);
+        if (winner == 1 && player1VictoryImage) player1VictoryImage.SetActive(true);
+        else if (winner == 2 && player2VictoryImage) player2VictoryImage.SetActive(true);
 
-        // Play victory music
-        if (victoryMusic != null)
-            victoryMusic.Play();
+        if (victoryMusic) victoryMusic.Play();
 
-        // Return to main menu after delay
-        StartCoroutine(ReturnToMenuAfterDelay(returnToMenuDelay));
+        Invoke(nameof(ReturnToMainMenu), returnToMenuDelay);
+
+        // Abandonded slow mo
+        // so sad
+        // StartCoroutine(SlowMoEnd(winner));
     }
 
-    private System.Collections.IEnumerator ReturnToMenuAfterDelay(float delay)
+    IEnumerator SlowMoEnd(int winner)
     {
-        yield return new WaitForSecondsRealtime(delay); 
-        SceneManager.LoadScene("MainMenu"); 
+        // Wait a bit
+        yield return new WaitForSecondsRealtime(0.65f);
+
+        // Restore time
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        // From above, show winner screen and play music
+        if (winner == 1 && player1VictoryImage) player1VictoryImage.SetActive(true);
+        else if (winner == 2 && player2VictoryImage) player2VictoryImage.SetActive(true);
+        if (victoryMusic) victoryMusic.Play();
+
+        // Wait to return to menu
+        yield return new WaitForSeconds(returnToMenuDelay);
+
+        ReturnToMainMenu();
     }
 
+    void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

@@ -29,6 +29,19 @@ public class ActionController : MonoBehaviour
 
     void Start()
     {
+        // Setting players tags for victory screen managment
+        if (playerID == 1)
+        {
+            gameObject.tag = "Player1";
+        } else if (playerID == 2)
+        {
+            gameObject.tag = "Player2"; 
+        }
+
+        // Debug to check if the tags got assigned here
+        Debug.Log($"{name} assigned tag: " + gameObject.tag);
+           
+
         mapper = GetComponent<InputMapper>();
         mapper.playerID = playerID;
         _movement = GetComponent<MovementScript>();
