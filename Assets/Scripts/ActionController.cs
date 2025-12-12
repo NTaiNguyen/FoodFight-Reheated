@@ -156,16 +156,18 @@ public class ActionController : MonoBehaviour
 
     void SpawnHitbox(HitboxData hbData)
     {
-        BoxCollider2D hitbox = Instantiate(hitboxPrefab, transform);
+        BoxCollider2D hitbox = Instantiate(hitboxPrefab, spriteRoot);
 
         Vector3 offset = hbData.offset;
         Vector2 size = hbData.size;
 
-        // Flip X offset if facing left
+        // Flip X offset if facing opponent on left
         float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
         offset.x *= facing;
 
-        hitbox.offset = new Vector2(offset.x, offset.y);
+        hitbox.transform.localScale = new Vector3(facing, 1f, 1f);
+
+        hitbox.offset = offset;
         hitbox.size = size;
 
         HitboxController controller = hitbox.GetComponent<HitboxController>();
@@ -174,7 +176,9 @@ public class ActionController : MonoBehaviour
 
         activeHitboxes.Add(hitbox);
 
-        // Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
+        // Un comment this to see if the hitboxes are spawning for each player
+        // With it uncommented its a lot in the debug menu
+        Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
     }
 
     void EndHitbox(HitboxData hbData)
@@ -201,4 +205,19 @@ public class ActionController : MonoBehaviour
         sAct = ActionState.NONE;
         isAttacking = false;
     }
+
+    // Method to show what direction players are facing
+    private void OnDrawGizmos()
+    {
+        if (spriteRoot == null) return;
+
+        Gizmos.color = Color.yellow;
+        float facing = spriteRoot.localScale.x;
+
+        Gizmos.DrawLine(
+            transform.position,
+            transform.position + new Vector3(facing * 1f, 0, 0)
+        );
+    }
+
 }

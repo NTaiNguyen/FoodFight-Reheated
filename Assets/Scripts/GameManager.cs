@@ -102,6 +102,16 @@ using UnityEngine;
             mapperP2.isAI = false;
         }
 
+        // For health bars
+        HealthBarManager ui = FindObjectOfType<HealthBarManager>();
+        if (ui != null)
+        {
+            ui.RegisterPlayers(
+                p1.GetComponent<ActionController>(),
+                p2.GetComponent<ActionController>()
+            );
+        }
+
         Debug.Log("SpawnPlayers finished.");
     }
 
