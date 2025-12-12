@@ -128,7 +128,7 @@ public class MovementScript : MonoBehaviour
             case InputDirection.UpLeft:
             case InputDirection.UpRight:
                 rb.linearVelocity = new Vector2(moveSpeed * input.x, jumpHeight);
-                isGrounded = false;
+                //isGrounded = false;
                 break;
 
             case InputDirection.Neutral:

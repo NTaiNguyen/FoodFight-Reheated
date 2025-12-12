@@ -75,6 +75,16 @@ public class VictoryManager : MonoBehaviour
         player1.DisablePlayer();
         player2.DisablePlayer();
 
+        //gets rid of player manager so character select can work again
+        GameObject pm = GameObject.Find("PlayerManager");
+        if (pm != null)
+        {
+            Destroy(pm);
+            Debug.Log("Destroyed PlayerManager before loading match scene");
+        }
+
+
+
         if (winner == 1 && player1VictoryImage)
         {
             player1VictoryImage.SetActive(true);

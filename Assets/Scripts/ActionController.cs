@@ -46,12 +46,12 @@ public class ActionController : MonoBehaviour
         mapper.playerID = playerID;
         _movement = GetComponent<MovementScript>();
 
-        // Find sprite root if not assigned
+        //Find spriteroot if not assigned
         if (spriteRoot == null)
             spriteRoot = GetComponentInChildren<SpriteRenderer>()?.transform;
         if (spriteRoot == null)
             spriteRoot = transform.Find("Sprite");
-
+        
         // Assign health
         currentHealth = _charData.health;
 
@@ -64,7 +64,7 @@ public class ActionController : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
         // Flip sprite towards opponent
         UpdateFacing();
@@ -126,6 +126,7 @@ public class ActionController : MonoBehaviour
         int attackIndex = (int)sAct;
         if (_charData.attacks != null && attackIndex >= 0 && attackIndex < _charData.attacks.Length)
             currentAttack = _charData.attacks[attackIndex - 1];
+            
         else
             currentAttack = null;
 
@@ -137,8 +138,8 @@ public class ActionController : MonoBehaviour
     {
         isAttacking = true;
         currentFrame = 0;
-        // if (currentAttack != null)
-        //     Debug.Log($"[ATTACK START] {gameObject.name} started {currentAttack.attackName}");
+        //if (currentAttack != null)
+            //Debug.Log($"[ATTACK START] {gameObject.name} started {currentAttack.attackName}");
     }
 
     void HandleHitboxSpawning()
@@ -154,35 +155,7 @@ public class ActionController : MonoBehaviour
         }
     }
 
-    // void SpawnHitbox(HitboxData hbData)
-    // {
-    //     BoxCollider2D hitbox = Instantiate(hitboxPrefab, spriteRoot);
-
-    //     Vector3 offset = hbData.offset;
-    //     Vector2 size = hbData.size;
-
-    //     // Flip X offset if facing opponent on left
-    //     float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
-    //     offset.x *= facing;
-
-    //     hitbox.transform.localScale = Vector3.one;
-
-    //     hitbox.offset = offset;
-    //     hitbox.size = size;
-
-    //     HitboxController controller = hitbox.GetComponent<HitboxController>();
-    //     controller.owner = this;
-    //     controller.data = hbData;
-
-    //     activeHitboxes.Add(hitbox);
-
-    //     // Un comment this to see if the hitboxes are spawning for each player
-    //     // With it uncommented its a lot in the debug menu
-    //     Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
-    //     Debug.Log($"[HITBOX END] {gameObject.name} ended at frame {currentFrame} for for {currentAttack.attackName}");
-
-    // }
-
+ 
     void SpawnHitbox(HitboxData hbData)
     {
         // Create object under spriteRoot but NOT scaled by flip
@@ -193,17 +166,17 @@ public class ActionController : MonoBehaviour
         BoxCollider2D hitbox = hbObj.AddComponent<BoxCollider2D>();
         hitbox.isTrigger = true;
 
-        // Flip offset manually ONLY
+        // if facing default direction keep direction if not flip around x axis
         float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
         Vector2 finalOffset = hbData.offset;
         finalOffset.x *= facing;
 
         // Apply collider settings
         hitbox.size = hbData.size;
-        hitbox.offset = finalOffset;
+        hitbox.offset = new Vector2(hbData.offset.x - 0.31f, hbData.offset.y - 0.31f);//finalOffset;
 
         // Position follows spriteRoot exactly
-        hbObj.transform.localPosition = Vector3.zero;
+        hbObj.transform.localPosition = Vector2.zero;
 
         // Assign controller
         HitboxController controller = hbObj.AddComponent<HitboxController>();
@@ -212,12 +185,7 @@ public class ActionController : MonoBehaviour
 
         activeHitboxes.Add(hitbox);
 
-    //     // Un comment this to see if the hitboxes are spawning for each player
-    //     // With it uncommented its a lot in the debug menu
-    
 
-        Debug.Log($"[HITBOX SPAWN] {currentAttack.attackName} at frame {currentFrame}, offset={finalOffset}");
-        Debug.Log($"[HITBOX END] {gameObject.name} ended at frame {currentFrame} for for {currentAttack.attackName}");
     }
 
 
@@ -237,7 +205,7 @@ public class ActionController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log($"{name} took {damage} damage; currentHealth: {currentHealth}");
+        //Debug.Log($"{name} took {damage} damage; currentHealth: {currentHealth}");
     }
 
     public void Reset()

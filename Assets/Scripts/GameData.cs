@@ -40,4 +40,23 @@ public class GameData : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
     }
+
+    public static void ResetGameData()
+    {
+        selectedP1 = null;
+        selectedP2 = null;
+
+        characterP1 = 0;
+        characterP2 = 0;
+
+        selectedMapIndex = -1;
+
+        if (Instance != null)
+        {
+            Instance.isP2AI = false;
+        }
+    }
+
+
+
 }

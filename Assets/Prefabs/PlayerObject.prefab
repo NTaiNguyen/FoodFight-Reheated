@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerID: 0
   _charData: {fileID: 0}
-  spriteRoot: {fileID: 0}
+  spriteRoot: {fileID: 4099847825272607900}
   opponent: {fileID: 0}
   hitboxPrefab: {fileID: 3989056495491855844, guid: 58df8663388e5b143bf849ce8205d2b6, type: 3}
   hurtboxPrefab: {fileID: 0}
@@ -235,7 +235,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   owner: {fileID: 0}
-  ownerID: 0
 --- !u!1 &6327993800037470485
 GameObject:
   m_ObjectHideFlags: 0

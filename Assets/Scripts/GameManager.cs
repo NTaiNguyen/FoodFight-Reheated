@@ -95,7 +95,7 @@ using UnityEngine;
 
             ai.Initialize(p1.transform, mapperP2);
 
-            Debug.Log("GameManager: configured P2 as AI");
+            //Debug.Log("GameManager: configured P2 as AI");
         }
         else
         {
