@@ -46,12 +46,12 @@ public class ActionController : MonoBehaviour
         mapper.playerID = playerID;
         _movement = GetComponent<MovementScript>();
 
-        // Find sprite root if not assigned
+        //Find spriteroot if not assigned
         if (spriteRoot == null)
             spriteRoot = GetComponentInChildren<SpriteRenderer>()?.transform;
         if (spriteRoot == null)
             spriteRoot = transform.Find("Sprite");
-
+        
         // Assign health
         currentHealth = _charData.health;
 
@@ -126,6 +126,7 @@ public class ActionController : MonoBehaviour
         int attackIndex = (int)sAct;
         if (_charData.attacks != null && attackIndex >= 0 && attackIndex < _charData.attacks.Length)
             currentAttack = _charData.attacks[attackIndex - 1];
+            
         else
             currentAttack = null;
 
@@ -137,8 +138,8 @@ public class ActionController : MonoBehaviour
     {
         isAttacking = true;
         currentFrame = 0;
-        // if (currentAttack != null)
-        //     Debug.Log($"[ATTACK START] {gameObject.name} started {currentAttack.attackName}");
+        //if (currentAttack != null)
+            //Debug.Log($"[ATTACK START] {gameObject.name} started {currentAttack.attackName}");
     }
 
     void HandleHitboxSpawning()
@@ -154,28 +155,39 @@ public class ActionController : MonoBehaviour
         }
     }
 
+ 
     void SpawnHitbox(HitboxData hbData)
     {
-        BoxCollider2D hitbox = Instantiate(hitboxPrefab, transform);
+        // Create object under spriteRoot but NOT scaled by flip
+        GameObject hbObj = new GameObject("Hitbox");
+        hbObj.transform.SetParent(spriteRoot);
+        hbObj.transform.localScale = Vector3.one;
+        
+        BoxCollider2D hitbox = hbObj.AddComponent<BoxCollider2D>();
+        hitbox.isTrigger = true;
 
-        Vector3 offset = hbData.offset;
-        Vector2 size = hbData.size;
-
-        // Flip X offset if facing left
+        // if facing default direction keep direction if not flip around x axis
         float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
-        offset.x *= facing;
+        Vector2 finalOffset = hbData.offset;
+        finalOffset.x *= facing;
 
-        hitbox.offset = new Vector2(offset.x, offset.y);
-        hitbox.size = size;
+        // Apply collider settings
+        hitbox.size = hbData.size;
+        hitbox.offset = new Vector2(hbData.offset.x - 0.31f, hbData.offset.y - 0.31f);//finalOffset;
 
-        HitboxController controller = hitbox.GetComponent<HitboxController>();
+        // Position follows spriteRoot exactly
+        hbObj.transform.localPosition = Vector2.zero;
+
+        // Assign controller
+        HitboxController controller = hbObj.AddComponent<HitboxController>();
         controller.owner = this;
         controller.data = hbData;
 
         activeHitboxes.Add(hitbox);
 
-        // Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
+
     }
+
 
     void EndHitbox(HitboxData hbData)
     {
@@ -193,7 +205,7 @@ public class ActionController : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log($"{name} took {damage} damage; currentHealth: {currentHealth}");
+        //Debug.Log($"{name} took {damage} damage; currentHealth: {currentHealth}");
     }
 
     public void Reset()
@@ -201,4 +213,27 @@ public class ActionController : MonoBehaviour
         sAct = ActionState.NONE;
         isAttacking = false;
     }
+
+    // Disabling player input so they cant act when the game ends
+    public void DisablePlayer()
+    {
+        isAttacking = false;
+        sAct = ActionState.NONE;
+
+        // Disable movement
+        if (_movement != null)
+            _movement.enabled = false;
+
+        // Disable input
+        if (mapper != null)
+            mapper.enabled = false;
+
+        // Destroy all active hitboxes
+        foreach (var hb in activeHitboxes)
+            if (hb != null) Destroy(hb.gameObject);
+
+        activeHitboxes.Clear();
+    }
+
+
 }

@@ -22,7 +22,7 @@ MonoBehaviour:
     hurtboxPrefab: {fileID: 0}
     hitboxes:
     - size: {x: 0.5, y: 0.5}
-      offset: {x: 0, y: 1}
+      offset: {x: 0.1, y: 1}
       activeFrameStart: 1
       activeFrameEnd: 3
       damage: 1

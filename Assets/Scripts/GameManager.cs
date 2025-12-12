@@ -95,11 +95,21 @@ using UnityEngine;
 
             ai.Initialize(p1.transform, mapperP2);
 
-            Debug.Log("GameManager: configured P2 as AI");
+            //Debug.Log("GameManager: configured P2 as AI");
         }
         else
         {
             mapperP2.isAI = false;
+        }
+
+        // For health bars
+        HealthBarManager ui = FindObjectOfType<HealthBarManager>();
+        if (ui != null)
+        {
+            ui.RegisterPlayers(
+                p1.GetComponent<ActionController>(),
+                p2.GetComponent<ActionController>()
+            );
         }
 
         Debug.Log("SpawnPlayers finished.");

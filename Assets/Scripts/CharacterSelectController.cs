@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectController : MonoBehaviour
 {
+    
+
     public RectTransform[] characterSlots;
     public RectTransform p1Cursor;
     public RectTransform p2Cursor;
@@ -28,12 +30,14 @@ public class CharacterSelectController : MonoBehaviour
     private bool isP1vsAI = false;
     private int mode;
 
+    
     void Start()
     {
+        Debug.Log("CHAR SELECT: START RAN");
+
         mode = PlayerPrefs.GetInt("GameMode", 1);
         Debug.Log("Mode selected is: (0 is AI and 2 is PVP)" + mode);
         gameData = GetComponent<GameData>();
-
         if (characterSlots == null || characterSlots.Length == 0)
         {
             Debug.LogError("characterSlots is empty. Assign your RectTransforms in the Inspector.");
@@ -125,6 +129,7 @@ public class CharacterSelectController : MonoBehaviour
             Debug.Log("Selected map index = " + GameData.selectedMapIndex);
 
             PlayerPrefs.Save();
+
             SceneManager.LoadScene("SampleScene");
         }
     }
@@ -162,4 +167,6 @@ public class CharacterSelectController : MonoBehaviour
             Debug.Log($"Player 2 has selected. p2Index={p2Index}");
         }
     }
+
+   
 }
