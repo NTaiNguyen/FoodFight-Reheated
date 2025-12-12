@@ -8,10 +8,15 @@ public class VictoryManager : MonoBehaviour
     public ActionController player1;
     public ActionController player2;
 
+    // Changed to be text mesh pro and not an image
     public GameObject player1VictoryImage;
     public GameObject player2VictoryImage;
+
+    // For background panel
+    public GameObject player1VictoryPanel;
+    public GameObject player2VictoryPanel;
     public AudioSource victoryMusic;
-    public float returnToMenuDelay = 10f;
+    public float returnToMenuDelay = 7f;
 
     private bool gameOver;
 
@@ -20,8 +25,16 @@ public class VictoryManager : MonoBehaviour
         gameOver = false;
 
         // Hide both victory screens to start
-        if (player1VictoryImage) player1VictoryImage.SetActive(false);
-        if (player2VictoryImage) player2VictoryImage.SetActive(false);
+        if (player1VictoryImage){
+            player1VictoryImage.SetActive(false);
+            // player1VictoryPanel.SetActive(false);
+        }
+
+        if (player2VictoryImage)
+        {
+            player2VictoryImage.SetActive(false);
+            // player2VictoryImage.SetActive(false);
+        }
 
         // Auto-assign players by tag if not set
         if (!player1) player1 = GameObject.FindGameObjectWithTag("Player1")?.GetComponent<ActionController>();
@@ -45,7 +58,8 @@ public class VictoryManager : MonoBehaviour
         if (!player1 || !player2)
             return; 
 
-        if (gameOver) return;
+        if (gameOver)
+            return;
 
         // Health check
         if (player1.currentHealth <= 0)
@@ -58,40 +72,24 @@ public class VictoryManager : MonoBehaviour
     {
         gameOver = true;
 
-        // // Slow mo finish
-        // Time.timeScale = 0.2f;
-        // Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        player1.DisablePlayer();
+        player2.DisablePlayer();
 
-        if (winner == 1 && player1VictoryImage) player1VictoryImage.SetActive(true);
-        else if (winner == 2 && player2VictoryImage) player2VictoryImage.SetActive(true);
+        if (winner == 1 && player1VictoryImage)
+        {
+            player1VictoryImage.SetActive(true);
+            // player1VictoryPanel.SetActive(true);
+        }
+        else if (winner == 2 && player2VictoryImage)
+        {
+            player2VictoryImage.SetActive(true);
+            // player2VictoryPanel.SetActive(true);
+        }
+        
 
         if (victoryMusic) victoryMusic.Play();
 
         Invoke(nameof(ReturnToMainMenu), returnToMenuDelay);
-
-        // Abandonded slow mo
-        // so sad
-        // StartCoroutine(SlowMoEnd(winner));
-    }
-
-    IEnumerator SlowMoEnd(int winner)
-    {
-        // Wait a bit
-        yield return new WaitForSecondsRealtime(0.65f);
-
-        // Restore time
-        Time.timeScale = 1f;
-        Time.fixedDeltaTime = 0.02f;
-
-        // From above, show winner screen and play music
-        if (winner == 1 && player1VictoryImage) player1VictoryImage.SetActive(true);
-        else if (winner == 2 && player2VictoryImage) player2VictoryImage.SetActive(true);
-        if (victoryMusic) victoryMusic.Play();
-
-        // Wait to return to menu
-        yield return new WaitForSeconds(returnToMenuDelay);
-
-        ReturnToMainMenu();
     }
 
     void ReturnToMainMenu()

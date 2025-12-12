@@ -64,7 +64,7 @@ public class ActionController : MonoBehaviour
         }
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Flip sprite towards opponent
         UpdateFacing();
@@ -154,32 +154,72 @@ public class ActionController : MonoBehaviour
         }
     }
 
+    // void SpawnHitbox(HitboxData hbData)
+    // {
+    //     BoxCollider2D hitbox = Instantiate(hitboxPrefab, spriteRoot);
+
+    //     Vector3 offset = hbData.offset;
+    //     Vector2 size = hbData.size;
+
+    //     // Flip X offset if facing opponent on left
+    //     float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
+    //     offset.x *= facing;
+
+    //     hitbox.transform.localScale = Vector3.one;
+
+    //     hitbox.offset = offset;
+    //     hitbox.size = size;
+
+    //     HitboxController controller = hitbox.GetComponent<HitboxController>();
+    //     controller.owner = this;
+    //     controller.data = hbData;
+
+    //     activeHitboxes.Add(hitbox);
+
+    //     // Un comment this to see if the hitboxes are spawning for each player
+    //     // With it uncommented its a lot in the debug menu
+    //     Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
+    //     Debug.Log($"[HITBOX END] {gameObject.name} ended at frame {currentFrame} for for {currentAttack.attackName}");
+
+    // }
+
     void SpawnHitbox(HitboxData hbData)
     {
-        BoxCollider2D hitbox = Instantiate(hitboxPrefab, spriteRoot);
+        // Create object under spriteRoot but NOT scaled by flip
+        GameObject hbObj = new GameObject("Hitbox");
+        hbObj.transform.SetParent(spriteRoot);
+        hbObj.transform.localScale = Vector3.one;
+        
+        BoxCollider2D hitbox = hbObj.AddComponent<BoxCollider2D>();
+        hitbox.isTrigger = true;
 
-        Vector3 offset = hbData.offset;
-        Vector2 size = hbData.size;
-
-        // Flip X offset if facing opponent on left
+        // Flip offset manually ONLY
         float facing = spriteRoot.localScale.x > 0 ? 1f : -1f;
-        offset.x *= facing;
+        Vector2 finalOffset = hbData.offset;
+        finalOffset.x *= facing;
 
-        hitbox.transform.localScale = new Vector3(facing, 1f, 1f);
+        // Apply collider settings
+        hitbox.size = hbData.size;
+        hitbox.offset = finalOffset;
 
-        hitbox.offset = offset;
-        hitbox.size = size;
+        // Position follows spriteRoot exactly
+        hbObj.transform.localPosition = Vector3.zero;
 
-        HitboxController controller = hitbox.GetComponent<HitboxController>();
+        // Assign controller
+        HitboxController controller = hbObj.AddComponent<HitboxController>();
         controller.owner = this;
         controller.data = hbData;
 
         activeHitboxes.Add(hitbox);
 
-        // Un comment this to see if the hitboxes are spawning for each player
-        // With it uncommented its a lot in the debug menu
-        Debug.Log($"[HITBOX] {gameObject.name} spawned hitbox at frame {currentFrame} for {currentAttack.attackName}");
+    //     // Un comment this to see if the hitboxes are spawning for each player
+    //     // With it uncommented its a lot in the debug menu
+    
+
+        Debug.Log($"[HITBOX SPAWN] {currentAttack.attackName} at frame {currentFrame}, offset={finalOffset}");
+        Debug.Log($"[HITBOX END] {gameObject.name} ended at frame {currentFrame} for for {currentAttack.attackName}");
     }
+
 
     void EndHitbox(HitboxData hbData)
     {
@@ -206,18 +246,26 @@ public class ActionController : MonoBehaviour
         isAttacking = false;
     }
 
-    // Method to show what direction players are facing
-    private void OnDrawGizmos()
+    // Disabling player input so they cant act when the game ends
+    public void DisablePlayer()
     {
-        if (spriteRoot == null) return;
+        isAttacking = false;
+        sAct = ActionState.NONE;
 
-        Gizmos.color = Color.yellow;
-        float facing = spriteRoot.localScale.x;
+        // Disable movement
+        if (_movement != null)
+            _movement.enabled = false;
 
-        Gizmos.DrawLine(
-            transform.position,
-            transform.position + new Vector3(facing * 1f, 0, 0)
-        );
+        // Disable input
+        if (mapper != null)
+            mapper.enabled = false;
+
+        // Destroy all active hitboxes
+        foreach (var hb in activeHitboxes)
+            if (hb != null) Destroy(hb.gameObject);
+
+        activeHitboxes.Clear();
     }
+
 
 }
