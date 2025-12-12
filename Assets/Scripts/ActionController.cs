@@ -123,12 +123,25 @@ public class ActionController : MonoBehaviour
         }
 
         // Assign current attack safely
-        int attackIndex = (int)sAct;
-        if (_charData.attacks != null && attackIndex >= 0 && attackIndex < _charData.attacks.Length)
-            currentAttack = _charData.attacks[attackIndex - 1];
+        // int attackIndex = (int)sAct;
+        // if (_charData.attacks != null && attackIndex > 0 && attackIndex < _charData.attacks.Length)
+        //     currentAttack = _charData.attacks[attackIndex - 1];
             
+        // else
+        //     currentAttack = null;
+
+        int attackIndex = (int)sAct - 1;
+
+        if (_charData.attacks != null &&
+            attackIndex >= 0 &&
+            attackIndex < _charData.attacks.Length)
+        {
+            currentAttack = _charData.attacks[attackIndex];
+        }
         else
+        {
             currentAttack = null;
+        }
 
         if (sAct != ActionState.NONE)
             StartAttack();
@@ -184,8 +197,6 @@ public class ActionController : MonoBehaviour
         controller.data = hbData;
 
         activeHitboxes.Add(hitbox);
-
-
     }
 
 

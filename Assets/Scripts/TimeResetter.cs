@@ -10,3 +10,4 @@ public class TimeResetter : MonoBehaviour
 }
 
 // This script resets the time at the beginning of every scene so that nothing gets messed up with the slow mo and stuff
+// Its not being useds
